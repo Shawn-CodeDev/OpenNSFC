@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" modified="2026-09-22T00:00:00.000Z" agent="openair-research" version="24.0.0">
+  <diagram id="tech-roadmap" name="技术路线图">
+    <mxGraphModel dx="1400" dy="900" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="q" value="科学问题：在概率流 ODE 采样框架下，轨迹复杂度是否构成一致性生成误差下界的充分统计量？\n是否存在使单步映射原理上不可行的临界复杂度？" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" value="研究内容一　轨迹复杂度的可计算度量\n\n方法：路径长度 L ／ 速度场总变差 V ／ 雅可比谱衰减率 κ\n产出：三者解析关系（或独立性证明）＋ 探针估计器（含误差界）\n验证：探针估计值 vs 完整积分参考值" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="130" width="720" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" value="研究内容二　受控分布族上的误差—复杂度关系\n\n方法：参数化高斯混合族（K, d, n, σ, 曲率）；固定容量与预算下测最优可达 TV 误差\n产出：误差—复杂度曲线（含置信区间）＋ 反例候选清单\n验证：≥5 随机种子 ＋ 超参搜索 ＋ Spearman 秩相关" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="300" width="720" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="研究内容三　临界复杂度与单步可行性判据\n\n方法：阈值定位 ＋ 受限设定下的下界定理（Lipschitz 受限／有限精度）\n工具：逼近论 ／ 采样复杂度 ／ 最优传输\n产出：临界复杂度 ＋ 下界 ＋ 可计算判据　　验证：留出分布族上的预测 vs 实测" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="470" width="720" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="研究内容四　可认证的加速准则与两类事实的统一解释\n\n方法：由复杂度反推安全步数；解释读出型任务与生成任务的差别\n产出：安全步数映射 ＋ 既有启发式代理（SeaCache／SenCache／HyCa）的适用边界\n验证：DiT／SiT 上预测与实际测量的一致性" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="640" width="720" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="neg" value="假说否定条件检验（主动搜索反例）\n搜索"轨迹复杂度任意大、但单步一致性映射 TV 误差仍趋于零"的分布族\n→ 若找到，假说被推翻；该结果本身具有独立价值（给出真正的可压缩性判据）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="800" width="720" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="v1" value="验证手段一\n受控分布族\n\n高维高斯混合（K∈[2,64], d∈[2,16],\nn∈[2,64], σ∈[1,100]）\nscore 有解析形式 → 真值可算" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="800" y="130" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="v2" value="验证手段二\n真实数据基准\n\nImageNet 256（类条件）\nCelebA-HQ\n检验判据在真实分布上的适用性" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="800" y="300" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="v3" value="基线三类（必含最强）\n\n① 一致性模型[17] / LCM[18]\n② SeaCache[1] / SenCache[2] / HyCa[3]\n③ 多步参照：DDIM / DPM-Solver" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="800" y="470" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="v4" value="消融设计 A1–A5\n\nA1 去掉曲率修正　A2 单度量\nA3 单次运行　A4 放宽受限设定\nA5 纳入读出型任务" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;strokeWidth=2;fontSize=11;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="800" y="640" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="e_q_c1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;strokeWidth=2;fontSize=10;" edge="1" parent="1" source="q" target="c1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_c1_c2" value="提供自变量" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;strokeWidth=2;fontSize=10;" edge="1" parent="1" source="c1" target="c2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_c2_c3" value="提供关系曲线与反例" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;strokeWidth=2;fontSize=10;" edge="1" parent="1" source="c2" target="c3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_c3_c4" value="提供判据" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;strokeWidth=2;fontSize=10;" edge="1" parent="1" source="c3" target="c4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_c4_neg" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;strokeWidth=2;fontSize=10;" edge="1" parent="1" source="c4" target="neg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_v1_c2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;strokeWidth=2;fontSize=10;" edge="1" parent="1" source="v1" target="c2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_v2_c4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;strokeWidth=2;fontSize=10;" edge="1" parent="1" source="v2" target="c4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_v3_c2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;strokeWidth=2;fontSize=10;" edge="1" parent="1" source="v3" target="c2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_v4_c3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;strokeWidth=2;fontSize=10;" edge="1" parent="1" source="v4" target="c3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

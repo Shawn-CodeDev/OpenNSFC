@@ -1,0 +1,182 @@
+{
+  "version": "1.0",
+  "updatedAt": "2026-09-22T13:47:37.541Z",
+  "query": [
+    {
+      "query": "all:multimodal+AND+all:jailbreak",
+      "sources": [
+        "arxiv"
+      ],
+      "at": "2026-09-22T13:46:24.051Z"
+    },
+    {
+      "query": "multimodal jailbreak attack",
+      "sources": [
+        "arxiv"
+      ],
+      "at": "2026-09-22T13:47:25.077Z"
+    },
+    {
+      "query": "multimodal large language model safety",
+      "sources": [
+        "crossref"
+      ],
+      "at": "2026-09-22T13:47:37.538Z"
+    }
+  ],
+  "records": [
+    {
+      "id": "doi:10.14711/thesis-hdl152429",
+      "source": "crossref",
+      "type": "thesis",
+      "title": "Multimodal Large Language Model for Medical Report Generation",
+      "abstract": "",
+      "authors": [
+        "Chen Zhixuan"
+      ],
+      "year": null,
+      "venue": "",
+      "doi": "10.14711/thesis-hdl152429",
+      "url": "https://doi.org/10.14711/thesis-hdl152429",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "publisher": "The Hong Kong University of Science and Technology Library",
+      "citationCount": 0,
+      "raw": null,
+      "sources": [
+        "crossref"
+      ],
+      "mergedFrom": []
+    },
+    {
+      "id": "doi:10.33774/coe-2025-6z9zx",
+      "source": "crossref",
+      "type": "preprint",
+      "title": "Multimodal Large Language Model (MLLM) Noise Resistance",
+      "abstract": "The “noise resistance” of an AI model determines its usability under non-ideal real-world conditions—in technology products, scientific research, etc.—where a few characters in text or pixels in images are often inaccurate. Prior to this study, the noise resistance of classification models and text-based large language models (LLMs) had been investigated, but the noise resistance of multimodal LLMs (MLLMs) had not. Thus, I studied MLLMs’ noise resistance against both textual noise (misspellings) and image noise (Gaussian, salt-pepper, and speckle). I also employed two denoising algorithms, spell-check (“aspell”) for textual prompts and OpenCV’s “Fast NL Means” for image prompts, to see if such pre-processing improves MLLM accuracy. I developed 10 textual prompts and 30 image-based prompts, each then noised and then denoised. I tested two MLLMs (LLaVA and GPT-4o), alongside a traditional LLM (GPT-3.5) given the textual prompts for comparison. I hypothesized that MLLMs would have poor noise resistance (even worse than traditional LLMs) and be helped by denoising algorithms. The first hypothesis was supported by the data, but the second hypothesis was refuted—traditional denoising algorithms generally hurt model performance. I also predicted, though not central to my study, that lower-parameter models would fare worse, which the data supported; however, as it was not a factor I set out to measure, future controlled studies should confirm this. Future studies should employ larger sample sizes to reduce variability and experiment with using smaller AI models as denoisers. MLLM users should put effort into crafting clean prompts and avoid traditional algorithmic denoisers.",
+      "authors": [
+        "Shah Prasham"
+      ],
+      "year": 2025,
+      "venue": "",
+      "doi": "10.33774/coe-2025-6z9zx",
+      "url": "https://doi.org/10.33774/coe-2025-6z9zx",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "publisher": "Cambridge University Press (CUP)",
+      "citationCount": 0,
+      "raw": null,
+      "sources": [
+        "crossref"
+      ],
+      "mergedFrom": []
+    },
+    {
+      "id": "doi:10.21203/rs.3.rs-6351052/v1",
+      "source": "crossref",
+      "type": "preprint",
+      "title": "Transferring population group knowledge from multimodal large language model to small model: using urban safety perception evaluation as case study",
+      "abstract": "Abstract Human-centric urban planning curates environments that address behaviors, perceptions, and feelings. Conventional methods of understanding people's perceptions and feelings depend on questionnaires and surveys that are time-consuming and labor-intensive. Recent studies developed deep-learning-based computer vision tools to decipher the safety perception. Yet, this method only provides a generalized approximation of human perception and fails to incorporate personalized and local assessments.Large language models (LLM), trained with immersive human knowledge, have demonstrated the potential to simulate human understanding of images, space, and place.In view of these challenges and motivations, our study proposes an LLM-based framework that zero-shot adapts general safety perception evaluation models to specific demographics and perception scenarios. The framework first generates (1) general and (2) demographic and scenario-specific textual descriptions for street view images (SVIs) in specific areas. Then SVIs and general descriptions are used to train a safety perception model, and specific descriptions are used to fine-tune it via a pseudo-labeling strategy.To validate our method's effectiveness, we conduct experiments using individual-level safety perception data from Stockholm. The results show that general model's accuracy decreased by 19.7–25 percent when evaluating safety perception with a specific population group, while the accuracy of fine-tuned model with our method improved by 14.9–24 percent. We further employ this framework to map safety perceptions of four predefined demographic groups (middle-aged, elderly, women, and men) in Hong Kong across two perception scenarios: traffic accidents and crime.Our framework provides governments with a new tool for large-scale automated evaluation of urban perceptions across different groups.",
+      "authors": [
+        "Hou Ce",
+        "Zhang Fan",
+        "Kang Yuhao",
+        "Fan Zhuangyuan",
+        "Li Sen"
+      ],
+      "year": 2025,
+      "venue": "",
+      "doi": "10.21203/rs.3.rs-6351052/v1",
+      "url": "https://doi.org/10.21203/rs.3.rs-6351052/v1",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "publisher": "Springer Science and Business Media LLC",
+      "citationCount": 0,
+      "raw": null,
+      "sources": [
+        "crossref"
+      ],
+      "mergedFrom": []
+    },
+    {
+      "id": "doi:10.2139/ssrn.6572621",
+      "source": "crossref",
+      "type": "preprint",
+      "title": "A Dual-Retrieval Augmented Multimodal Large Language Model Framework for Automatic Post-Earthquake Building Safety Evaluation",
+      "abstract": "Rapid post-earthquake building safety evaluation is critical for disaster response, infrastructure rehabilitation, and public safety. However, traditional manual inspections remain labor-intensive, time-consuming, and hazardous. While current task-specific inspection models excel at damage detection yet fall short in reasoning, Multimodal Large Language Models (MLLMs) offer semantic reasoning but lack the domain-specific seismic engineering knowledge required for standard-compliant safety evaluation. To address this, this study proposes SeisMLLM, a novel dual-path retrieval-augmented MLLM framework that bridges visual damage perception and expert-level safety evaluation. To enable this framework, this work constructs SeisMLLM-1k, the first case-level multi-view dataset comprising 3,856 images across 1,306 building cases from 17 global earthquakes, with annotations strictly grounded in standard protocols, e.g., ATC-20-1 Field Manual: Postearthquake Safety Evaluation of Buildings. In this study, SeisMLLM explicitly decouples visual perception from safety judgment via a domain-finetuned MLLM, and grounds the reasoning process through a dual-path retrieval strategy encompassing both historical damage cases and the regulatory logic of ATC-20-1. An ATC-20-1 compliant assessment report is ultimately generated via chain-of-thought reasoning. Experimental results demonstrate that SeisMLLM effectively mitigates critical failure modes of general-purpose MLLMs, outperforming representative open-source baselines by an average of 38.5 percentage points in safety evaluation accuracy, and achieving a leading accuracy of 66.13%. Overall, SeisMLLM transforms black-box predictions into an interpretable, standard-compliant solution for automated building safety evaluation.",
+      "authors": [
+        "Ma Yixuan",
+        "Jiang Jun",
+        "Wang Shuo",
+        "Liu Jiahui",
+        "Qi Xiaojuan",
+        "Wang Xuguang"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.2139/ssrn.6572621",
+      "url": "https://doi.org/10.2139/ssrn.6572621",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "publisher": "Elsevier BV",
+      "citationCount": 0,
+      "raw": null,
+      "sources": [
+        "crossref"
+      ],
+      "mergedFrom": []
+    },
+    {
+      "id": "doi:10.5220/0014756900004940",
+      "source": "crossref",
+      "type": "conference",
+      "title": "Large Language Model Generation Safety: A Comprehensive Investigation",
+      "abstract": "",
+      "authors": [
+        "Zhang Chenwei"
+      ],
+      "year": 2025,
+      "venue": "Proceedings of the 2nd International Conference on Applied Physics and Mathematics",
+      "doi": "10.5220/0014756900004940",
+      "url": "https://doi.org/10.5220/0014756900004940",
+      "volume": "",
+      "issue": "",
+      "pages": "18-22",
+      "publisher": "SCITEPRESS - Science and Technology Publications",
+      "citationCount": 0,
+      "raw": null,
+      "sources": [
+        "crossref"
+      ],
+      "mergedFrom": []
+    },
+    {
+      "id": "doi:10.64898/2026.03.05.26347766",
+      "source": "crossref",
+      "type": "preprint",
+      "title": "Thyroid Cancer Risk Prediction from Multimodal Datasets Using Large Language Model",
+      "abstract": "Abstract Thyroid carcinoma is one of the most prevalent endocrine malignancies worldwide, and accurate preoperative differentiation between benign and malignant thyroid nodules remains clinically challenging. Diagnostic methods that medical practitioners use at present depend on their personal judgment to evaluate both imaging results and separate clinical tests, which creates inconsistency that leads to incorrect medical evaluations. The combination of radiological imaging with clinical information systems enables healthcare providers to enhance their capacity to make reliable predictions about patient outcomes while improving their decision-making abilities. The study introduces a deep learning framework that utilizes multiple data sources by combining magnetic resonance imaging (MRI) data with clinical text to predict thyroid cancer. The system uses a Vision Transformer (ViT) to obtain advanced MRI scan features, while a domain-adapted language model processes clinical documents that contain patient medical history and symptoms and laboratory results. The cross-modal attention system enables the system to merge imaging data with textual information from different sources, which helps to identify how the two types of data are interconnected. The system uses a classification layer to classify the fused features, which allows it to determine the probability of cancerous tumors. The experimental results show that the proposed multimodal system achieves better results than the unimodal base systems because it has higher accuracy, sensitivity, specificity, and AUC values, which help medical personnel to make better preoperative decisions.",
+      "authors": [
+        "Ray Paramita"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.64898/2026.03.05.26347766",
+      "url": "https://doi.org/10.64898/2026.03.05.26347766",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "publisher": "openRxiv",
+      "citationCount": 1,
+      "raw": null,
+      "sources": [
+        "crossref"
+      ],
+      "mergedFrom": []
+    }
+  ]
+}

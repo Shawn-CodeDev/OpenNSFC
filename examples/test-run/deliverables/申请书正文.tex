@@ -1,0 +1,870 @@
+% !TEX program = xelatex
+% ============================================================================
+%  国家自然科学基金 · 青年科学基金项目（C 类） · 报告正文
+%
+%  结构严格遵循国家自然科学基金委《报告正文（2026 版）》模板：
+%    （一）立项依据
+%    （二）研究内容（提纲不做限制，按研究工作的自身逻辑撰写；
+%                    应提炼出特色与创新点、年度研究计划）
+%    （三）研究基础 → 1.研究基础与可行性分析 / 2.工作条件 /
+%                     3.正在承担的与本项目相关的科研项目情况 /
+%                     4.完成国家自然科学基金项目情况
+%    （四）其他需要说明的情况 → 1.–6.（第 5 项为生成式 AI 使用披露，独立必填）
+%
+%  篇幅：申请书正文原则上不超过 30 页，鼓励简洁表达。
+%
+%  本文件由 OpenNFSC 依据 青年科学基金项目（C 类） 的 2026 版官方提纲生成。
+%  提纲标题及括号中的文字已逐字保留（官方明令"请勿删除或改动下述提纲标题及括号中的文字。"）。
+%
+%  【青年科学基金项目（C 类）关键约束（正文之外，易被忽略）】
+%    · 申请书构成：信息表格 + 正文 + 个人简历 + 附件
+%    · 信息表格：仅项目基本信息
+%    · 经费制度：经费包干制，提交时**无需编制项目预算**
+%    · 资助期限：**3 年**
+%    · 合作研究单位：无明文上限（依托单位要求各异）
+%    · 个人简历：仅申请人本人（在线填写后自动生成 PDF，由申请人上传）
+%    · 附件代表作：5 篇以内申请人本人公开发表的与申请项目相关的代表性论文
+%    · 评价侧重：**重点评价申请人本人的创新潜力**
+%    · 研究属性：自由探索类基础研究 / 目标导向类基础研究（二选一）
+%
+%  编译方式：xelatex 连续编译两次（生成页码与交叉引用）
+%      & 'bin/compile-tex.ps1' -TexPath <本文件>
+%
+%  依赖：TeX Live 或 MiKTeX，需含 ctex / xeCJK / longtable / enumitem /
+%        fancyhdr / hyperref / xcolor / caption / float / verbatim / tikz 宏包
+% ============================================================================
+\documentclass[12pt,a4paper]{ctexart}
+
+% ============================================================================
+%  页面版式 —— **逐项复刻自已获批申请书 PDF 原件的实测值**
+%
+%  实测方法：用 pdf.js 取每个文本项的 transform（字号 / x / y），按行聚合后取众数。
+%  两份原件（青年本 2024 版、面上本 2021 版）的下列数值完全一致：
+%    · 左右边距非对称：左 32 mm / 右 28.7 mm（**不是**常见的对称页边距）
+%    · 正文上边界距页顶 32.5 mm，下边界距页底 27 mm
+%    · 页眉基线距页顶 15.9 mm，页脚基线距页底 15.9 mm
+%    · 正文与各级标题同为 12 pt（小四），靠加粗/字体区分层级
+%    · 页眉页脚 10 pt（小五）
+%
+%  几何参数换算说明：LaTeX 的 top/bottom 量的是"版心"边界，而上面是"文字实际位置"。
+%  因此 top/bottom 取版心值，另用 head/headsep 与 foot/footskip 把页眉页脚推到实测位置。
+% ============================================================================
+\usepackage[
+  a4paper,
+  left=32mm, right=28.7mm,
+  top=32.5mm, bottom=27mm,
+  headheight=4mm, headsep=16.6mm,
+  footskip=11.1mm
+]{geometry}
+
+% ---------- 字体（正文宋体小四；标题黑体；与原件观感一致） ----------
+% 优先使用系统 Windows 中文字体；若缺失则回退到 TeX Live 自带的 Fandol 字体，
+% 保证在任意平台都能编译成功（字体存在性判断命令由 fontspec 提供）。
+\IfFontExistsTF{SimSun}{%
+  \setCJKmainfont{SimSun}[BoldFont=SimHei,ItalicFont=KaiTi]%
+  \setCJKsansfont{SimHei}%
+  \setCJKmonofont{FangSong}%
+}{%
+  \setCJKmainfont{FandolSong-Regular}[BoldFont=FandolHei-Regular,ItalicFont=FandolKai-Regular]%
+  \setCJKsansfont{FandolHei-Regular}%
+  \setCJKmonofont{FandolFang-Regular}%
+}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{}
+\IfFontExistsTF{Consolas}{\setmonofont{Consolas}}{}
+
+% ---------- 行距与段落 ----------
+% 行距为**实测值**，两类不同：
+%   青年本（2024 版）实测 22pt（93% 的行）≈ Word 1.5 倍行距
+%   面上本（2021 版）实测 28pt（73% 的行）≈ Word 2.0 倍行距
+% 换算：行距系数 = 目标行距pt / (字号12pt × 1.2)。
+\linespread{1.5278}\selectfont
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+
+% ---------- 标题格式 ----------
+% 实测：原件各级标题与正文**同为 12pt**，没有字号放大；层级靠加粗与字体区分。
+% 因此这里不再使用放大字号命令，避免与原件观感不符。
+\ctexset{
+  section       = {format = \heiti\bfseries\zihao{-4}\raggedright,
+                   beforeskip = 11pt plus 2pt minus 2pt,
+                   afterskip  = 7pt},
+  subsection    = {format = \heiti\bfseries\raggedright, beforeskip = 9pt, afterskip = 4pt},
+  subsubsection = {format = \heiti\raggedright, beforeskip = 7pt, afterskip = 3pt},
+}
+
+% ---------- 其它宏包 ----------
+\usepackage{longtable}
+\usepackage{enumitem}
+% amsmath 提供 lVert / rVert / text 等数学命令
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,backgrounds,calc}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}p{0.22\linewidth}}
+\captionsetup{font=small,labelsep=quad}
+
+% ---------- 页眉页脚（复刻原件样式） ----------
+% 原件实测：页眉"国家自然科学基金申请书<年份>版"、页脚"第 N 页  版本：<系统编号>"，
+% 均为 8pt。其中"版本："后的长编号由 ISIS 系统生成，无法离线复现，故此处留参数。
+% 页眉居中、页脚页码居中（实测原件页眉居中于版心、页脚页码靠右，见下方 fancyhdr 设置）。
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\songti\zihao{-5} \nsfcHeader}
+\fancyfoot[C]{\songti\zihao{-5} \nsfcFooter}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+% 页眉/页脚文字（可在正文 Markdown 顶部用 HTML 注释覆盖：<!-- nsfc-header: … -->）
+\newcommand{\nsfcHeader}{国家自然科学基金申请书2026版}
+\newcommand{\nsfcFooter}{第 \thepage 页}
+
+% ============================================================================
+\begin{document}
+
+% 放宽断行容忍度：参考文献中的长 URL（OpenReview / arXiv）缺少常规断点，
+% 不这样做会产生大量 Overfull hbox 溢出页边距。
+% 注意：sloppy 与 emergencystretch 只能在 begin{document} 之后设置。
+\sloppy
+\emergencystretch=3em
+
+% ---------- 封面信息 ----------
+\begin{center}
+  {\heiti\zihao{2} 生成任务的可压缩性判据：\\[6pt] 轨迹复杂度与一致性采样误差下界的关系}\\[14pt]
+  {\heiti\zihao{4} 国家自然科学基金青年科学基金项目（C类）申请书 · 报告正文}\\[10pt]
+  {\songti\zihao{-4}
+申请代码：F0601（人工智能）\\[3pt]
+    研究属性：自由探索类基础研究\\[3pt]
+    执行期：2027-01 至 2029-12
+  }
+\end{center}
+\vspace{6pt}
+\noindent\rule{\linewidth}{0.8pt}
+
+\section*{（一）立项依据：}
+
+（为什么要开展此项研究，研究的科学技术价值如何）
+
+\subsection*{1.研究背景与意义}
+
+\subsubsection*{1.1　采样步数长期被当作超参数，而非被当作受下界约束的计算资源}
+
+扩散模型通过逐步去噪生成样本，生成质量的提升长期伴随采样步数的增加。为压缩推理成本，过去三年发展出一条清晰的加速路线：从按固定比例复用中间结果，到基于相邻时间步特征距离的动态决策，再到辨识决定复用可行性的具体物理量。SeaCache 命名了去噪过程中的\textbf{频谱演化}现象——低频结构先出现、高频细节后退化——指出原始特征差"纠缠了内容与噪声"，并据此构造频谱对齐的滤波器［1］。SenCache 把缓存误差形式化为模型输出对噪声隐变量与时间步扰动的\textbf{敏感度}，指出该敏感度是缓存误差的关键预测因子，进而实现逐样本自适应调度［2］。HyCa 把隐特征演化建模为\textbf{跨维度的 ODE 混合}，在 FLUX、HunyuanVideo 与 Qwen-Image 上取得 5.55 倍至 6.24 倍加速且无需重训［3］。Prophet 发现扩散语言模型中正确答案在半数步数前已在内部确定（GSM8K 上 97\%、MMLU 上 99\% 的实例可用一半步数正确解码），以 top-2 置信度差作为提前提交判据，最高减少 3.4 倍解码步数［4］。
+
+把步数压到极限的做法是一致性生成：训练一个映射，把概率流 ODE 轨迹上的任意点直接映到轨迹起点，从而支持单步生成。这一思路由一致性模型（Consistency Models）提出，其要点是要求同一轨迹上任意两点的映射输出彼此自洽，因而在原理上允许一步生成［17］；潜在一致性模型（Latent Consistency Models）进一步把该约束施加于潜空间并配合引导蒸馏，使少步高分辨率合成在实用规模模型上成为可能［18］。在具体任务上，这条路线已取得明确成功——TRACE 把文生图扩散模型的内部表征蒸馏为\textbf{一步}边缘解码器，取得 81 倍加速［5］。
+
+但值得追问的是：\textbf{单步化究竟能做到多好，由什么决定？}
+
+\subsubsection*{1.2　现有方法凭代理量决策，而代理量与真实误差的关系从未建立}
+
+一个值得注意的现象是，上述加速工作在批评前人时，攻击的\textbf{不是效果数字，而是判据的性质}。SenCache 明确写道"现有缓存方法依赖启发式准则来选择缓存/复用时间步，并且需要大量调参"［2］；SeaCache 的批评指向"表示空间选错"［1］；HyCa 的批评指向"粒度不对"［3］。这种一致的批评方式说明，该方向已经意识到问题不在"判据够不够准"，而在\textbf{判据与真实误差的关系从未被建立}。
+
+这一判断可通过检查这些方法自身的构造得到印证。它们共享同一设计范式：\textbf{构造一个代理量来预测误差，再对该代理量阈值化}。SeaCache 的代理量是频谱滤波后的特征差，SenCache 的是敏感度上界，HyCa 的是维度级 ODE 残差，Prophet 的是 top-2 置信度差。四者都未给出误差的\textbf{可证明界}。其后果是：当代理量与真实误差之间的关系发生解耦——例如目标分布族的轨迹结构超出代理量成立的范围——阈值化决策将失去依据，而\textbf{方法本身无法察觉}，因为它没有可供对照的界。
+
+\subsubsection*{1.3　理论侧刻画的是"某个构造是否需要修正"，而非"步数的下界"}
+
+与此同时，把采样过程当作数学对象来研究的工作构成了另一条主线，但它们刻画的对象与上述问题并不重合。
+
+掩码扩散模型在\textbf{有限精度对数宽度}设定下被证明与多项式填充的循环 Transformer 等价，并能求解思维链增强 Transformer 可解的全部问题，且对某些问题类（含正则语言）严格更高效［6］。PAPL 证明\textbf{标准离散扩散训练 ELBO 不准确描述使用非均匀规划器的去噪器}——规划器通过迭代规划改变逆向路径，在训练假设的均匀随机路径与推理路径之间造成不可撤销的失配——并据此导出 P-ELBO 将规划动态写入训练目标［7］。The Spacetime 证明标准 pullback 方法"可证明地迫使测地线在数据空间中解码为直线段"，从而忽略了环境欧氏空间之外的一切内在数据几何，转而引入 latent spacetime 并导出 Diffusion Edit Distance［8］。RLR 刻画了截断反传梯度估计量的偏差、方差与收敛行为［9］。DiffusionNFT 指出基于离散化逆向过程的在线强化学习继承"求解器受限、前向—逆向不一致、与无分类器引导集成复杂"三项缺陷，转而直接在前向过程上优化［16］。
+
+这些结论都是\textbf{证伪式}的，且都以精确的构造限定为前提。它们回答的是"某个特定构造是否需要修正"，而\textbf{没有回答"存在哪些分布，无论采用什么构造都需要 Ω(T) 步"}。换言之：\textbf{少步可行性的下界是空白}。
+
+\subsubsection*{1.4　两个并存的事实互相矛盾，而区分它们的判据不存在}
+
+单步化是否可行，现有文献中存在两个方向相反的事实。
+
+一方面，TRACE 证明单步蒸馏在读出型任务上完全可行并取得 81 倍加速［5］。另一方面，整个加速文献普遍报告步数越少质量越差，并把这一权衡当作经验事实接受［1-4］。
+
+两个事实同时为真，却互不解释。TRACE 的任务是从扩散内部表征中\textbf{读出}既存信息（实例边界），而生成任务要求\textbf{构造}完整样本；两者在分布结构上的差异从未被形式化。因此，\textbf{并不存在判断某任务能否单步化的判据}——给定一个新任务，既无法预判单步是否可行，也无法在单步失败时判断这是方法不足还是原理所限。
+
+\subsubsection*{1.5　本项目拟回答的科学问题}
+
+综合上述缺口，本项目拟回答的科学问题是：
+
+\begin{quote}\small
+\textbf{在概率流 ODE 采样框架下，轨迹复杂度——路径长度、速度场总变差或雅可比谱衰减率——是否构成该分布族上一致性生成误差下界的充分统计量？即：最优一致性模型的 TV 误差能否由轨迹复杂度预测，并存在一个复杂度阈值，超过它单步映射在原理上不可行？}
+
+\end{quote}
+
+该问题限定在概率流 ODE 框架与\textbf{生成任务}范围内（须构造完整样本），TRACE 式读出型任务不计入。\textbf{若该假说成立}，则应能观察到：在受控分布族上，一致性模型的最优可达 TV 误差随轨迹复杂度单调增长，且存在可定位的临界复杂度——超过该值后任何单步映射的误差都无法降到阈值以下，而多步采样仍可达成。
+
+\textbf{否定条件}：若构造出轨迹复杂度任意大、但单步一致性映射的 TV 误差仍趋于零的分布族，则该假说被推翻。
+
+\textbf{研究的科学技术价值}：若该判据成立，步数将从超参数变为受下界约束的量，从而\textbf{在训练任何蒸馏模型之前}即可判定目标分布族的可压缩程度与临界步数。这将改变该方向的实验组织方式——从"设计方法—测指标—比加速比"的循环，转为"度量复杂度—判定可行域—在可行域内设计方法"。
+
+\subsection*{2.国内外研究现状}
+
+\subsubsection*{2.1　加速机制：判据的原理性在提升，但始终是经验性的}
+
+早期加速方法按固定比例复用中间结果，其后转向基于相邻时间步特征距离的动态决策。近一年，该方向出现明显的"物理量化"趋势：SeaCache 从频谱角度切入，指出去噪过程存在低频先行、高频后退的演化顺序，并据此设计滤波器以在估计冗余时抑制噪声［1］；SenCache 从敏感度切入，把缓存误差形式化为输出对输入的扰动响应，为自适应缓存提供理论依据，并解释了为何先前的经验启发式"能够部分有效"［2］；HyCa 进一步细化到维度级别，指出全维度统一缓存忽略了异质动态，并以 ODE 混合刻画逐维演化［3］；Prophet 则从解码过程切入，发现早答案收敛现象［4］。GLASS Flows 通过构造"流匹配中的流匹配"消除随机性与效率的权衡，在不重训的前提下兼得 ODE 的效率与 SDE 的随机演化［10］。LPD 通过局部性感知的生成顺序，把自回归图像生成的步数从 256 降到 20［11］。SANA-Video 在系统层面组合线性注意力与常数内存 KV cache，把训练成本压缩到 MovieGen 的 1\%［12］。
+
+\textbf{能力边界}：判据的构造越来越有原理，但\textbf{判据与误差的关系始终是经验性的}。"近无损""延迟—质量权衡"都是指标层面的断言；指标无退化与分布层面保真是两件事，而后者从未被这些工作主张过。
+
+\subsubsection*{2.2　保分布理论：评价标准正在从"效果更好"迁移到"保持了某个可证明的性质"}
+
+Quotient-Space 证明对齐式简化"未能保持目标分布"，转而在商空间上构造生成过程：允许模型输出在等价类内任意移动以降低学习难度，同时保证输出服从正确的对称目标分布［13］。Spherical Watermark 证明其水印噪声分布保持目标先验至\textbf{三阶矩}，并给出与标准多元正态\textbf{统计不可分}的实证［14］。Structured Flow Autoencoders 则通过带隐变量的流匹配目标，在图像、视频与 RNA-seq 上同时取得生成质量与表示效用［15］。
+
+\textbf{能力边界}：保分布已被证明可以与降维、简化共存。但\textbf{没有工作讨论保分布与少步采样是否相容}——若二者冲突，"不破坏目标分布"这一硬指标将对单步化构成额外约束，而这一约束目前无人刻画。
+
+\subsubsection*{2.3　步数理论：把采样过程当作数学对象，但只做到"构造级"结论}
+
+这一支最年轻也最稀疏。MDM Reasoning 把掩码扩散与填充式循环 Transformer 在有限精度对数宽度设定下建立等价，给出"能解什么"的刻画［6］。PAPL 证明标准离散扩散训练 ELBO 不描述使用非均匀规划器的去噪器，导出 P-ELBO，并在蛋白序列（+40\%）、文本（MAUVE 最高 4 倍）、代码（HUMANEVAL pass@10 +23\%）上验证［7］。The Spacetime 证明标准 pullback 解码在几何上是有缺陷的，建立 latent spacetime 这一新的几何对象，进而导出可用的 Diffusion Edit Distance 与分子过渡路径采样工具［8］。RLR 从优化侧刻画梯度估计量的偏差—方差权衡［9］。DiffusionNFT 改进在线扩散强化学习的训练目标［16］。
+
+\textbf{能力边界}：上述工作都是"某构造在某受限设定下的性质"。\textbf{"存在哪些分布，无论怎么构造都需要 Ω(T) 步"这一问题无人回答。} 这意味着当出现新的少步方法时，没有任何理论工具可以判断它是否已接近该分布族的极限。
+
+\subsubsection*{2.4　能力重利用：单步可行的正面证据及其未被解释之处}
+
+TRACE 证明文生图扩散模型"秘密地充当实例边缘标注器"：它识别自注意力图中物体边界首次出现的时刻（Instance Emergence Point），通过 Attention Boundary Divergence 提取边界，并蒸馏为轻量一步解码器，免除逐图扩散反演，在 COCO 上把无监督实例分割提升 5.1 AP，同时取得 81 倍加速［5］。
+
+\textbf{能力边界}：这是单步可行性的\textbf{存在性证明}，但它对"为什么这个任务允许单步而生成任务不允许"保持沉默。两个任务在分布结构上的差异被回避，而判据恰恰藏在这个差异里。
+
+\subsubsection*{2.5　研究现状总结与结构性不足}
+
+综合四条主线，当前研究存在三项\textbf{结构性}不足：
+
+\textbf{（1）加速方法的评价标准是启发式代理，缺乏可验证的误差界。} SeaCache、SenCache、HyCa、Prophet 共享"构造代理量 → 阈值化"的范式。SenCache 批评旧方法依赖启发式准则，但以敏感度替代后仍未给出误差界——范式未变。代理量与真实误差的关系未被证明，一旦解耦，方法无法自察。
+
+\textbf{（2）少步可行性的结论与具体构造强耦合，无法迁移。} MDM Reasoning 系于有限精度对数宽度，PAPL 限于离散扩散规划器，The Spacetime 只证伪 pullback 解码，RLR 只处理截断反传。不存在与构造无关的理论工具。
+
+\textbf{（3）单步蒸馏的成功与失败都缺少解释。} TRACE 的单步成功与加速文献的普遍衰减同时为真却互不解释；两个任务在分布结构上的差异从未被形式化，区分二者的判据不存在。
+
+三项不足共同指向同一个未被占据的位置：\textbf{把分布本身的"可压缩性"作为研究对象，建立与具体构造无关的步数下界。}
+
+\vspace{4pt}\noindent\rule{\linewidth}{0.4pt}\vspace{4pt}
+
+\section*{参考文献}
+
+［1］Jiwoo Chung, Sangeek Hyun, MinKyu Lee, et al. SeaCache: Spectral-Evolution-Aware Cache for Accelerating Diffusion Models[C]//CVPR 2026. https://openreview.net/forum?id=KFkXRsltJT.［2］Yasaman Haghighi, Alexandre Alahi. SenCache: Accelerating Diffusion Model Inference via Sensitivity-Aware Caching[C]//CVPR 2026. https://openreview.net/forum?id=FQX5MMklFM.［3］Shikang Zheng, Guantao Chen, Qinming Zhou, et al. Let Features Decide Their Own Solvers: Hybrid Feature Caching for Diffusion Transformers[C]//ICLR 2026. https://openreview.net/forum?id=URbsHlTK8c.［4］Pengxiang Li, Yefan Zhou, Dilxat Muhtar, et al. Diffusion Language Model Knows the Answer Before It Decodes[C]//ICLR 2026. https://openreview.net/forum?id=g88nt4ieTG.［5］Sanghyun Jo, Ziseok Lee, Wooyeol Lee, et al. TRACE: Your Diffusion Model is Secretly an Instance Edge Detector[C]//ICLR 2026. https://openreview.net/forum?id=BjElYlJKMj.［6］Anej Svete, Ashish Sabharwal. On the Reasoning Abilities of Masked Diffusion Language Models[C]//ICLR 2026. https://openreview.net/forum?id=BVnIsh4Nz1.［7］Fred Zhangzhi Peng, Zachary Bezemek, Jarrid Rector-Brooks, et al. Planner Aware Path Learning in Diffusion Language Models Training[C]//ICLR 2026. https://openreview.net/forum?id=lAlI5FuIf7.［8］Rafal Karczewski, Markus Heinonen, Alison Pouplin, et al. The Spacetime of Diffusion Models: An Information Geometry Perspective[C]//ICLR 2026. https://openreview.net/forum?id=qCsbYJZRA5.［9］Tao Ren, Zishi Zhang, Jinyang Jiang, et al. Half-order Fine-Tuning for Diffusion Model: A Recursive Likelihood Ratio Optimizer[C]//ICLR 2026. https://openreview.net/forum?id=AZ6lqcvHLX.［10］Peter Holderrieth, Uriel Singer, Tommi Jaakkola, et al. GLASS Flows: Efficient Inference for Reward Alignment of Flow and Diffusion Models[C]//ICLR 2026. https://openreview.net/forum?id=vH7OAPZ2dR.［11］Zhuoyang Zhang, Luke J. Huang, Chengyue Wu, et al. Locality-aware Parallel Decoding for Efficient Autoregressive Image Generation[C]//ICLR 2026. https://openreview.net/forum?id=h06l9w1clt.［12］Junsong Chen, Yuyang Zhao, Jincheng Yu, et al. SANA-Video: Efficient Video Generation with Block Linear Diffusion Transformer[C]//ICLR 2026. https://doi.org/10.48550/arXiv.2509.24695.［13］Yixian Xu, Yusong Wang, Shengjie Luo, et al. Quotient-Space Diffusion Models[C]//ICLR 2026. https://openreview.net/forum?id=3JPAkwSVc4.［14］Xiaoxiao Hu, Jiaqi Jin, Sheng Li, et al. Spherical Watermark: Encryption-Free, Lossless Watermarking for Diffusion Models[C]//ICLR 2026. https://openreview.net/forum?id=2eAGrunxVz.［15］Yidan Xu, Yixin Wang, XuanLong Nguyen. Structured Flow Autoencoders: Learning Structured Probabilistic Representations with Flow Matching[C]//ICLR 2026. https://openreview.net/forum?id=KYdfvF2SZN.［16］Kaiwen Zheng, Huayu Chen, Haotian Ye, et al. DiffusionNFT: Online Diffusion Reinforcement with Forward Process[C]//ICLR 2026. https://openreview.net/forum?id=VJZ477R89F.［17］Yang Song, Prafulla Dhariwal, Mark Chen, et al. Consistency Models[EB/OL]. (2023)[2026-09-22]. https://arxiv.org/abs/2303.01469.［18］Simian Luo, Yiqin Tan, Longbo Huang, et al. Latent Consistency Models: Synthesizing High-Resolution Images with Few-Step Inference[EB/OL]. (2023)[2026-09-22]. https://arxiv.org/abs/2310.04378.
+
+\vspace{4pt}\noindent\rule{\linewidth}{0.4pt}\vspace{4pt}
+
+\section*{（二）研究内容：}
+
+（提纲不做限制，请按照研究工作的自身逻辑撰写。应提炼出特色与创新点、年度研究计划）
+
+\subsection*{1.特色与创新点}
+
+\subsubsection*{1.1. 研究特色}
+
+\textbf{特色一：以分布为自变量，而非以方法为因变量。} 现有加速研究固定分布、优化判据；本项目把分布族的轨迹复杂度作为自变量，研究"可压缩性"这一分布层性质。这一取向使结论不随具体构造的演化而失效。
+
+\textbf{特色二：以可计算性为硬约束设计度量。} 轨迹复杂度若需完整 ODE 积分才能计算，判据便无实用价值。本项目把"少量探针可估计"作为度量设计的\textbf{硬约束}而非事后优化目标，并为此引入曲率修正项。
+
+\textbf{特色三：把否定条件写入研究内容。} 本项目将"主动搜索反例"作为研究内容二的既定任务，并把 TRACE 式读出型任务明确作为判据的边界情形处理，而非回避。因此无论假说成立与否都有明确产出。
+
+\subsubsection*{1.2. 本项目的创新之处}
+
+\textbf{（1）提出"可压缩性"作为分布层性质，并建立与构造无关的误差界。} 现有工作回答"我们的方法能做到几步"，本项目回答"这个分布最少需要几步"。创新之处在于判据的自变量是分布本身，而非任何特定的一致性约束形式。
+
+\textbf{（2）给出轨迹复杂度的可计算度量与探针估计器。} 使判据在训练任何蒸馏模型之前即可给出临界步数的估计，从而把"是否值得继续投入加速方法"变为可先验判定的问题。
+
+\textbf{（3）统一解释单步可行与不可行两类任务的差别。} 用同一判据说明读出型任务允许单步、生成任务普遍衰减的成因，并给出既有启发式代理（SeaCache / SenCache / HyCa）的适用边界刻画。
+
+\subsection*{2.年度研究计划}
+
+项目执行期 2027 年 1 月至 2029 年 12 月，共三年。
+
+\textbf{第一年度（2027.01–2027.12）：复杂度的可计算度量}
+
+\begin{itemize}[leftmargin=2em,itemsep=2pt,topsep=3pt]
+  \item 建立三种候选度量的定义与解析关系；
+  \item 实现探针估计器与曲率修正项；
+  \item 在高斯混合族上完成估计精度验证；
+  \item 里程碑产出：复杂度度量工具包 v1（含误差界说明）+ 在 DiT/SiT 上的估计值报告。
+\end{itemize}
+
+\textbf{第二年度（2028.01–2028.12）：受控分布族上的误差—复杂度关系}
+
+\begin{itemize}[leftmargin=2em,itemsep=2pt,topsep=3pt]
+  \item 完成参数化分布族构造与复杂度真值计算；
+  \item 完成一致性模型在多配置上的训练与最优可达误差测量；
+  \item 绘制误差—复杂度曲线并执行单调性检验；
+  \item 主动搜索反例（否定条件检验）；
+  \item 里程碑产出：误差—复杂度关系曲线（含置信区间）+ 反例候选清单。
+\end{itemize}
+
+\textbf{第三年度（2029.01–2029.12）：判据建立、统一解释与验证}
+
+\begin{itemize}[leftmargin=2em,itemsep=2pt,topsep=3pt]
+  \item 定位临界复杂度，给出受限设定下的下界定理；
+  \item 建立由复杂度反推安全步数的映射；
+  \item 在 ImageNet 256 上验证判据的预测能力；
+  \item 给出既有启发式代理的适用边界刻画；
+  \item 里程碑产出：单步可行性判据 + 真实数据基准验证报告 + 开源工具包最终版。
+\end{itemize}
+
+学术交流：计划参加相关领域高水平国际学术会议 2–3 人次，并就判据的初步结果组织一次小范围学术研讨。
+
+\subsection*{3. 研究工作的自身逻辑与主要内容}
+
+（本部分按研究工作的自身逻辑撰写；下列 3.1–3.6 为本项目的具体研究内容划分）
+
+\subsubsection*{3.1　研究工作的自身逻辑与总体思路}
+
+本项目围绕一个科学假说展开：
+
+\begin{quote}\small
+在概率流 ODE 采样框架下，分布的\textbf{轨迹复杂度}决定其一致性生成误差的下界；存在一个临界复杂度，超过它单步映射在原理上不可行。
+
+\end{quote}
+
+一致性生成由一致性模型提出，其核心是要求同一概率流 ODE 轨迹上任意两点的映射输出自洽，因而在原理上支持一步生成［17］；潜在一致性模型把该约束施加于潜空间并配合引导蒸馏，使少步合成在实用规模模型上可用［18］。然而，这类方法能达到的精度上限由什么决定，目前没有理论回答。
+
+研究工作按"\textbf{建立可测量的复杂度量 → 在受控分布族上测量误差—复杂度关系 → 定位临界阈值 → 设计可认证的加速准则并解释两类任务的差别}"的路径推进。四部分研究内容构成一条链：前一部分的输出是后一部分的输入，任一部分缺失则假说无法被完整检验。
+
+\subsubsection*{3.2　研究内容一：轨迹复杂度的可计算度量}
+
+\textbf{针对的问题}：本项目的自变量是"轨迹复杂度"，但该概念在现有加速文献中并无统一定义。SeaCache 从频谱角度描述轨迹的局部结构［1］，HyCa 从维度级异质动态角度描述［3］，二者刻画的对象并不相同。若不能给出可计算、且在分布族间可比的度量，后续所有测量都失去基准。
+
+\textbf{研究任务}：确立三种候选度量并刻画其相互关系。
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|}
+\hline
+\textbf{候选度量} & \textbf{定义} & \textbf{计算方式} \\
+\hline
+\endfirsthead
+\hline
+\textbf{候选度量} & \textbf{定义} & \textbf{计算方式} \\
+\hline
+\endhead
+\textbf{路径长度} $L$ & 概率流 ODE 轨迹在样本空间中的总弧长 & $\int_0^T \lVert v(x_t,t)\rVert \,dt$ \\
+\hline
+\textbf{速度场总变差} $V$ & 速度场沿轨迹的时间累积变化 & $\int_0^T \lVert \partial_t v(x_t,t)\rVert \,dt$ \\
+\hline
+\textbf{雅可比谱衰减率} $\kappa$ & 去噪映射的局部压缩率谱 & 对 $\nabla_x v$ 做谱分解，取有效秩的衰减指数 \\
+\hline
+\end{longtable}
+
+\textbf{关键任务}是判定三者是否互相决定。若其中两个可由第三个导出，判据形式将大为简化；若三者独立，则需给出"哪种度量对误差下界更具决定性"的结论。
+
+\textbf{技术要点}：
+
+\begin{itemize}[leftmargin=2em,itemsep=2pt,topsep=3pt]
+  \item \textbf{不可依赖完整 ODE 积分}：完整积分需数百步求解，代价与待优化的采样过程同量级，判据将失去实用价值。因此研究目标是给出\textbf{少量探针估计}：用 $k$ 步粗积分（$k \ll T$）加误差修正项，把 $L$ 与 $V$ 的估计误差控制在可接受范围。
+  \item \textbf{尺度不变性}：度量必须在数据重标定、分辨率变化下保持可比，否则跨分布族的比较无意义。
+  \item \textbf{与现有现象对接}：检验 SeaCache 命名的频谱演化［1］与 HyCa 命名的维度级异质动态［3］能否由本项目的度量统一表述。这一步同时为本项目与既有工作建立可比较的语言。
+\end{itemize}
+
+\textbf{可检验的中间产出}：三种度量的定义及其间的解析关系（或独立性的证明）；探针估计器的误差界；在 DiT / SiT 上的度量估计值与完整积分参考值对照。
+
+\subsubsection*{3.3　研究内容二：受控分布族上的误差—复杂度关系}
+
+\textbf{针对的问题}：假说的核心是"误差随复杂度单调增长"。这需要一个\textbf{可控分布族}，使复杂度可连续调节而其他因素尽量不变。
+
+\textbf{研究任务}：
+
+\textbf{（1）构造参数化分布族。} 以高维高斯混合为基础族，通过调节以下参数连续改变轨迹复杂度：
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|}
+\hline
+\textbf{参数} & \textbf{作用} & \textbf{预期对复杂度的影响} \\
+\hline
+\endfirsthead
+\hline
+\textbf{参数} & \textbf{作用} & \textbf{预期对复杂度的影响} \\
+\hline
+\endhead
+分量数 $K$ & 模式数量 & 增加 → 轨迹需穿越更多低密度区 \\
+\hline
+分量间距 $d$ & 模式分离度 & 增加 → 速度场在模式边界处变化更剧烈 \\
+\hline
+维度 $n$ & 本征维度 & 增加 → 雅可比谱结构更复杂 \\
+\hline
+协方差条件数 $\sigma$ & 各向异性 & 增加 → 局部压缩率差异更大 \\
+\hline
+附加流形曲率 & 内在几何 & 增加 → 测地线偏离直线段 \\
+\hline
+\end{longtable}
+
+选择高斯混合的关键理由是\textbf{其 score 函数有解析形式}，轨迹可被任意精度积分作为参考真值，从而使度量估计器的误差可被独立评估。
+
+\textbf{（2）测量最优可达误差。} 对每个分布族配置：训练一致性模型（固定模型容量、固定训练预算）；扫描训练轮数与超参，取该配置下的\textbf{最优可达 TV 误差}（而非单次结果）；同时测量多步采样在同一配置下的误差作为参照。
+
+\textbf{（3）检验单调性与搜索反例。} 若误差随复杂度\textbf{单调增长}且增长趋势可被某个度量解释 → 支持假说；若出现\textbf{复杂度高但单步误差仍低}的反例 → 记录并分析其结构特征，这将是假说否定条件的直接检验。
+
+\textbf{技术要点}：
+
+\begin{itemize}[leftmargin=2em,itemsep=2pt,topsep=3pt]
+  \item \textbf{公平性}：所有配置使用相同模型容量与训练预算。若容量随复杂度增加，则无法区分"复杂度导致不可压缩"与"容量不足"。
+  \item \textbf{最优性}：单次训练结果不代表"最优可达"。需通过多随机种子与超参搜索逼近，并报告方差。
+  \item \textbf{误差度量}：以 TV 距离为主（与假说表述一致），辅以 Wasserstein 距离与 FID 作稳健性检查。
+\end{itemize}
+
+\textbf{可检验的中间产出}：分布族构造规范与生成代码；误差—复杂度关系曲线（含置信区间）；反例候选清单及其结构分析。
+
+\subsubsection*{3.4　研究内容三：临界复杂度与单步可行性判据}
+
+\textbf{针对的问题}：假说若成立，应存在\textbf{临界复杂度}，超过它单步映射的原理性误差无法降到阈值以下。该阈值的存在性与可计算性是本项目的核心预言。
+
+\textbf{研究任务}：
+
+\textbf{（1）阈值定位。} 在研究内容二的曲线上定位斜率显著变化的位置，检验其是否与分布族的某个结构性特征（如模式分离度超过某尺度）对应。
+
+\textbf{（2）下界估计。} 尝试给出临界复杂度的\textbf{可计算下界}：证明"当复杂度超过某可计算值时，任何单步映射的误差不低于某值"。
+
+\begin{quote}\small
+\textbf{重要限定}：下界必须对\textbf{所有}单步映射成立，而非仅对某类网络。该要求很强，直接求解困难。因此本项目采用\textbf{条件性结果}策略：先把结论限定在受限设定下（Lipschitz 受限的映射类、有限精度、固定参数量级），获得干净定理后再逐步放宽。这一策略有直接先例——掩码扩散的表达能力等价性正是通过把结论限定在"有限精度对数宽度"设定下才得到干净结果［6］；标准离散扩散 ELBO 的失效也只在"非均匀 planner"这一精确构造下被证明［7］。
+
+\end{quote}
+
+\textbf{（3）单步可行性判据。} 综合前两项给出判据：给定一个分布族，如何在不训练的前提下判定单步一致性映射是否可行；若可行，可达误差量级是多少。
+
+\textbf{技术要点}：下界证明所需工具来自\textbf{逼近论}（宽度—深度权衡、度量熵）、\textbf{采样复杂度}（minimax 下界）与\textbf{最优传输}（Wasserstein 收缩性），核心是在"分布族的复杂度度量"与"单步映射的逼近能力"之间建立联系。判据必须\textbf{可计算}——若判据本身需要求解比原问题更难的最优化，则无实用价值。此外需处理读出型任务这一边界情形：在\textbf{生成任务}范围内建立判据，并把 TRACE 式读出型任务作为边界情形说明［5］。
+
+\textbf{可检验的中间产出}：临界复杂度的数值定位结果；受限设定下的下界定理及其证明；判据的可计算形式及在标准分布族上的验证。
+
+\subsubsection*{3.5　研究内容四：可认证的加速准则与两类事实的统一解释}
+
+\textbf{针对的问题}：若前三部分成立，则应能反向使用判据——由目标分布的复杂度\textbf{反推安全步数}，而非靠调参试出步数。同时应能解释 TRACE 的成功与生成任务的普遍衰减为何并存［5］。
+
+\textbf{研究任务}：
+
+\textbf{（1）由复杂度反推安全步数。} 建立从轨迹复杂度到"保证误差不超过给定容限所需最少步数"的映射，在标准模型上验证预测与实际测量是否一致。
+
+\textbf{（2）统一解释两类事实。} 用同一判据解释：为什么读出型任务允许单步——读出任务不要求构造完整样本，其误差度量不包含样本分布的重建，因而不受同一约束；为什么生成任务普遍衰减——生成任务必须重建完整分布，轨迹复杂度直接进入误差下界。
+
+\textbf{（3）与既有加速方法的关系。} 检验本判据与 SeaCache 的频谱判据［1］、SenCache 的敏感度判据［2］、HyCa 的维度级判据［3］是否一致；若不一致，定位分歧来源。这一步同时是对不足 1 的回应：\textbf{给出这些启发式代理"在什么范围内有效"的刻画}，把它们从经验规则提升为有适用边界的近似。
+
+\textbf{可检验的中间产出}：复杂度到安全步数的映射及其预测误差；对读出型与生成型任务差异的形式化说明；现有启发式代理的适用边界刻画。
+
+\subsubsection*{3.6　核心方法、技术路线与验证方案}
+
+\paragraph{3.6.1　核心科学洞察}
+
+本项目推进所依赖的一个观察是：\textbf{加速文献与理论文献在批评前人时，攻击的都是"判据或构造的性质"，而非"效果数字"}。SenCache 批评的是"启发式准则"并自陈其需要大量调参［2］；SeaCache 批评的是"表示空间的选择"［1］；PAPL 证伪的是"标准离散扩散训练 ELBO"［7］；The Spacetime 证伪的是"标准 pullback 几何"［8］。这一致的批评方式说明，该领域已普遍意识到问题在于\textbf{缺少与构造无关的、关于分布本身的性质刻画}。
+
+若把"能否少步"从构造层面（我们的方法能做到几步）提升到分布层面（这个分布最少需要几步），则前述三项结构性不足可同时被回应：代理量的问题由误差界取代，构造耦合的问题由分布级判据取代，两类事实的矛盾由判据的适用范围说明取代。
+
+\paragraph{3.6.2　技术路线图}
+
+!\IfFileExists{图1-技术路线图.tikz}{\input{图1-技术路线图.tikz}}{\IfFileExists{图1-技术路线图.png}{\begin{center}\includegraphics[width=\linewidth]{图1-技术路线图.png}\end{center}}{\begin{center}\fbox{\parbox{0.9\linewidth}{\small\noindent【此处应为图：图1　技术路线图】尚未提供图片文件。可二选一：(a) 把同名 \texttt{.tikz} 矢量文件放在本 \texttt{.tex} 同目录，重新编译即自动嵌入；(b) 提供 \texttt{图1-技术路线图.png} 位图后重新编译。}}\end{center}}}
+
+\textbf{图1　项目技术路线图}
+
+图形说明：图的上部为本项目要回答的科学问题；中部为四项研究内容，按研究推进顺序排列，模块间的箭头标注了输入输出关系（研究内容一提供复杂度度量作为自变量，研究内容二提供误差—复杂度关系与反例，研究内容三提供判据，研究内容四给出可认证的加速准则）；右侧为本项目的四类验证手段（受控分布族、真实数据基准、三类基线、消融设计 A1–A5）；底部单列假说否定条件的检验路径，体现本项目的可证伪设计。图中模块名称与正文标题逐字对应。
+
+\begin{quote}\small
+\textbf{【出图说明】} 图件源文件（三种可编辑格式）见交付目录：
+
+- \texttt{图1-技术路线图.drawio} —— 推荐。打开 https://app.diagrams.net → Open Existing Diagram → 选择该文件，可直接拖拽调整布局，导出为 PNG / PDF / SVG。\textbf{导出时请命名为 \texttt{图1-技术路线图.png} 并与本文件置于同一目录，以便正文正确引用。}
+
+- \texttt{图1-技术路线图.dot} —— Graphviz 源码，执行 \texttt{dot -Tpng 图1-技术路线图.dot -o 图1-技术路线图.png}
+
+- \texttt{图1-技术路线图.mmd} —— Mermaid 源码，可粘贴至 https://mermaid.live 在线预览并导出
+
+
+详细的排版建议见 \texttt{图1-技术路线图-使用说明.md}。
+
+\end{quote}
+
+\paragraph{3.6.3　核心方法设计}
+
+\textbf{（1）复杂度的探针估计。} 完整积分轨迹长度的代价为 $O(T \cdot C_{\text{NFE}})$，与待优化的采样过程同量级。本项目采用 $k$ 步粗积分（$k \ll T$）加两项修正：用速度场的局部 Lipschitz 常数估计被截断的弧长，用曲率信息修正离散化偏差。目标是使估计误差随 $k$ 以可控速率衰减。
+
+\textbf{（2）受控分布族的构造。} 采用高维高斯混合作为基础，因其 score 有解析形式、轨迹可作参考真值；在此之上叠加低维流形结构与各向异性协方差以引入非平凡的雅可比谱。关键好处是\textbf{复杂度的"真值"可计算}，使度量估计器的误差可被独立评估。
+
+\textbf{（3）最优可达误差的测量。} 对每个配置以网格搜索 + 多随机种子的方式训练一致性模型，取多次结果的\textbf{下分位数}作为"最优可达"的估计并报告方差；同时用相同容量训练多步采样器作为对照，以区分"单步不可行"与"模型容量不足"。
+
+\textbf{（4）下界的受限设定策略。} 直接对所有单步映射证下界不可行。本项目采用\textbf{逐级放宽}策略：先在 Lipschitz 受限 + 有限精度设定下证得干净结果，再尝试放宽至更一般的映射类，借鉴掩码扩散等价性工作通过限定"有限精度对数宽度"获得干净定理的路径［6］。
+
+\paragraph{3.6.4　验证方案}
+
+\textbf{（1）数据集与基准}
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.400\linewidth}|>{\raggedright\arraybackslash}p{0.400\linewidth}|}
+\hline
+\textbf{项} & \textbf{内容} \\
+\hline
+\endfirsthead
+\hline
+\textbf{项} & \textbf{内容} \\
+\hline
+\endhead
+\textbf{受控分布族} & 高维高斯混合族（$K \in [2, 64]$、$d \in [2, 16]$、$n \in [2, 64]$、各向异性 $\sigma \in [1, 100]$），含解析 score，可作参考真值 \\
+\hline
+\textbf{真实数据基准} & ImageNet 256（类条件生成）与 CelebA-HQ，用于检验判据在真实分布上的适用性 \\
+\hline
+\textbf{标准模型} & DiT、SiT 作为一致性蒸馏基座，使用官方预训练权重以保证可比 \\
+\hline
+\end{longtable}
+
+\textbf{（2）基线}。对照分三类，\textbf{必须包含该方向当前最强方法}：
+
+\begin{enumerate}[leftmargin=2em,itemsep=2pt,topsep=3pt]
+  \item \textbf{最强一致性方法基线}：一致性模型［17］与潜在一致性模型［18］及其后续改进工作。此外，因该方向迭代速度快，\textbf{在提交前须检索并补充至少一项最近 6 个月内发布的最强一致性方法作为对照}——计算机学科评审对基线是否包含当前最强方法极为敏感，基线偏弱会被直接识别。\textbf{【核实】}
+  \item \textbf{最强启发式加速基线}：SeaCache［1］、SenCache［2］、HyCa［3］——用于检验本判据与既有代理的关系。
+  \item \textbf{多步采样参照}：同一模型上的 DDIM / DPM-Solver 多步采样——用于区分"单步不可行"与"容量不足"。
+\end{enumerate}
+
+\textbf{（3）评价指标}
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|}
+\hline
+\textbf{指标} & \textbf{定义} & \textbf{为何能反映有效性} \\
+\hline
+\endfirsthead
+\hline
+\textbf{指标} & \textbf{定义} & \textbf{为何能反映有效性} \\
+\hline
+\endhead
+\textbf{TV 距离}（主指标） & 生成分布与目标分布的全变差 & 与科学假说的表述一致；对单步映射的误差最直接 \\
+\hline
+Wasserstein-2 距离 & 二阶矩意义下的传输代价 & 稳健性检查；对轨迹几何敏感 \\
+\hline
+FID & 特征空间分布距离 & 与领域惯例对接，便于与既有工作比较 \\
+\hline
+复杂度估计误差 & 探针估计值 vs 完整积分参考 & 检验内容一的估计器质量 \\
+\hline
+判据预测误差 & 判据预测的安全步数 vs 实测所需步数 & 检验内容三、四的实用性 \\
+\hline
+\end{longtable}
+
+为何以 TV 为主：FID 依赖特征提取器，在受控分布族上无定义；Wasserstein 距离对分布尾部不敏感。TV 是唯一在本项目的受控设定与真实数据设定下都可用的分布级指标。
+
+\textbf{（4）对比与消融设计}
+
+对比设计的公平性：相同数据划分、相同模型容量、相同训练预算、相同调参预算；单项运行的算力上限固定；所有方法在同一评测协议下重跑，不直接引用原文数字。
+
+消融设计（每个声称的创新组件一个消融）：
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|}
+\hline
+\textbf{消融项} & \textbf{删去什么} & \textbf{预期影响} \\
+\hline
+\endfirsthead
+\hline
+\textbf{消融项} & \textbf{删去什么} & \textbf{预期影响} \\
+\hline
+\endhead
+A1 & 复杂度估计器中的曲率修正项 & 估计误差增大 → 判据预测精度下降 \\
+\hline
+A2 & 三个候选复杂度度量只用单个 & 检验是否单一度量已足够 \\
+\hline
+A3 & 多随机种子取最优（改为单次运行） & 检验"最优可达"估计的稳定性 \\
+\hline
+A4 & 下界的受限设定放宽 & 检验定理的适用范围边界 \\
+\hline
+A5 & 读出型任务纳入判据适用范围 & 检验判据边界设定的必要性（TRACE 式任务［5］） \\
+\hline
+\end{longtable}
+
+\textbf{（5）假说检验与否定条件}
+
+假说成立的可观测推论：① 误差—复杂度曲线单调增长，且可被某个复杂度度量解释（$R^2$ 超过设定阈值）；② 存在临界复杂度，其位置在不同分布族间稳定；③ 判据在留出分布族上的预测误差低于设定容限。
+
+否定条件（本项目的可证伪设计）：
+
+\begin{quote}\small
+若在受控分布族中构造出\textbf{轨迹复杂度任意大、但单步一致性映射的最优可达 TV 误差仍趋于零}的配置，则本假说被推翻。
+
+\end{quote}
+
+本项目将\textbf{主动搜索}这一反例，而非回避。若反例存在，进一步分析其结构特征——该分析本身将给出"可压缩性的真正判据"，因此否定结果同样构成有效产出。
+
+统计显著性：所有误差曲线基于 ≥5 个随机种子，报告均值与 95\% 置信区间；单调性检验采用 Spearman 秩相关并报告 $p$ 值。
+
+\textbf{（6）算力与成本}
+
+本项目的算力需求按研究阶段估算如下：
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|}
+\hline
+\textbf{阶段} & \textbf{主要计算任务} & \textbf{估算用量} \\
+\hline
+\endfirsthead
+\hline
+\textbf{阶段} & \textbf{主要计算任务} & \textbf{估算用量} \\
+\hline
+\endhead
+第一年度 & 复杂度度量的探针估计与误差界验证；DiT/SiT 上的估计值对照 & 约 3,000 A100 卡时 \\
+\hline
+第二年度 & 受控分布族上的一致性模型训练与最优可达误差测量（含多随机种子与超参搜索） & 约 12,000 A100 卡时 \\
+\hline
+第三年度 & ImageNet 256 规模的一致性蒸馏实验与判据验证 & 约 10,000 A100 卡时 \\
+\hline
+\textbf{合计} &  & \textbf{约 25,000 A100 卡时} \\
+\hline
+\end{longtable}
+
+受控分布族实验以中小规模模型为主，单配置训练约需 1–2 张 A100 卡时；ImageNet 256 的一致性蒸馏实验约需 8 张 A100 运行 3–5 天。上述规模为参考量级。\textbf{【核实：请按依托单位的实际算力条件调整本表数值，并与（三）2.2、2.3 两节所述的已具备条件与尚缺条件保持一致。】}
+
+\textbf{（7）可复现性}
+
+受控分布族的生成代码、复杂度真值计算脚本、训练配置与随机种子全部开源；判据以独立工具包形式发布，支持第三方在自有分布上复算；实验结果的原始日志与曲线数据随论文一并公开。
+
+\subsubsection*{3.7　预期研究成果}
+
+\textbf{（1）理论与技术方面}：一套关于生成任务可压缩性的判据，给出轨迹复杂度与一致性采样误差下界的关系；受限设定下的步数下界定理；三种轨迹复杂度度量的解析关系（或独立性的证明）；既有启发式加速代理的适用边界刻画。
+
+\textbf{（2）工具与开源方面}：开源受控分布族生成与复杂度真值计算工具包；开源判据实现，支持第三方在自有分布上复算临界复杂度。
+
+\textbf{（3）学术论文方面}：拟在机器学习与计算机视觉领域顶级会议（NeurIPS / ICML / ICLR / CVPR）发表学术论文 3–4 篇。
+
+\textbf{（4）知识产权方面}：申请国家发明专利 1–2 项。
+
+\textbf{成果数量的设定依据}：上述数量系按青年科学基金项目的规模与周期给出的量级。需要特别说明的是，国家自然科学基金委在通讯评审常见负面意见中明确列出"预期研究成果过高、过多，超出了申请人以往研究基础和项目组以往研究工作所表现的能力"一项，且青年科学基金项目的评议要点包含"申请人的创新潜力"。因此，\textbf{成果预期应与申请人近三年的实际发表记录处于同一量级}。\textbf{【核实：请对照本人近三年实际发表记录确认上述数量——若近年年均发表 1 篇，建议将论文数量下调至 2–3 篇；若已有稳定产出，则维持现有量级。】}
+
+\vspace{4pt}\noindent\rule{\linewidth}{0.4pt}\vspace{4pt}
+
+\section*{（三）研究基础：}
+
+\subsection*{1.研究基础与可行性分析（与本项目相关的研究工作积累和已取得的研究工作成绩，研究风险的应对措施等）；}
+
+\subsubsection*{1.1　与本项目相关的研究工作积累和已取得的研究工作成绩}
+
+\paragraph{1.1.1　研究方向的延续性}
+
+申请人长期从事〔填写：研究方向，如"生成模型的高效采样与推理"〕方向的研究，工作围绕"生成模型的采样过程"这一主线展开，与本项目所研究的"一致性生成的可压缩性"在对象上连续、在层次上递进：既有的工作重心在于\textbf{如何把采样步数降下来}，本项目则转向\textbf{为什么某些分布能降、某些不能降}，即从方法设计转向可压缩性的判据建立。
+
+\paragraph{1.1.2　已取得的研究工作成绩}
+
+〔按以下格式逐项列出与本项目直接相关的已发表论文、已完成项目与软件成果。每项须包含：题目、发表会议/期刊、年份、本人排名、核心结论、与本项目哪个研究内容对应。示例格式：〕
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.150\linewidth}|>{\raggedright\arraybackslash}p{0.150\linewidth}|>{\raggedright\arraybackslash}p{0.150\linewidth}|>{\raggedright\arraybackslash}p{0.150\linewidth}|>{\raggedright\arraybackslash}p{0.150\linewidth}|>{\raggedright\arraybackslash}p{0.150\linewidth}|}
+\hline
+\textbf{序号} & \textbf{成果名称} & \textbf{发表/完成情况} & \textbf{本人排名} & \textbf{核心结论（一句话）} & \textbf{对应研究内容} \\
+\hline
+\endfirsthead
+\hline
+\textbf{序号} & \textbf{成果名称} & \textbf{发表/完成情况} & \textbf{本人排名} & \textbf{核心结论（一句话）} & \textbf{对应研究内容} \\
+\hline
+\endhead
+1 & 〔论文题目〕 & 〔会议/期刊, 年份〕 & 〔第 X 作者/通讯〕 & 〔主要发现，不要只列题目〕 & 〔内容一/二/三/四〕 \\
+\hline
+2 &  &  &  &  &  \\
+\hline
+3 &  &  &  &  &  \\
+\hline
+\end{longtable}
+
+〔若已有与本项目直接相关的软件或数据集成果，在此列出并说明开放情况。〕
+
+\paragraph{1.1.3　前期预研结果与初步实验发现}
+
+\begin{quote}\small
+\textbf{本节是自由探索类项目竞争力的核心。国家自然科学基金委对自由探索类基础研究明确要求更高的预实验基础。}
+
+以下各项请据实填写\textbf{具体数值}，而非"已开展初步研究"这类表述。
+
+\end{quote}
+
+\textbf{（1）轨迹复杂度的初步测量。} 〔填写：已测量过的分布族（如高斯混合的分量数 K、维度 n、各向异性 σ 的取值）、对应的轨迹复杂度数值（路径长度 L 或速度场总变差 V），以及测量所用的模型（DiT / SiT 等）。〕
+
+\textbf{（2）一致性模型的误差数据。} 〔填写：在上述配置下训练一致性模型所得的最优可达 TV 误差（或 FID、Wasserstein 距离），以及所用的训练预算与随机种子数。宜给出与多步采样基线的对照数值。〕
+
+\textbf{（3）复杂度与误差的关系。} 〔填写：在上述数据上是否已观察到单调关系。若有，给出 Spearman 秩相关系数与 p 值；若发现异常点或反例，如实说明其配置与表现——反例本身对本项目具有独立价值。〕
+
+\textbf{（4）判据原型的初步检验。} 〔如已构建初步的判据原型，填写其预测的安全步数与实测所需步数的偏差。若无，说明本项目启动后前 6 个月内的补齐计划。〕
+
+\textbf{（5）可视化材料。} 〔填写：是否有可展示的误差—复杂度曲线、轨迹可视化或注意力/表征图。若有，说明可提供的图件数量与内容。〕
+
+\paragraph{1.1.4　技术储备}
+
+本项目四项研究内容各自依赖不同的技术能力，申请人的储备情况如下：
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|}
+\hline
+\textbf{研究内容} & \textbf{所需技术能力} & \textbf{申请人的对应储备} \\
+\hline
+\endfirsthead
+\hline
+\textbf{研究内容} & \textbf{所需技术能力} & \textbf{申请人的对应储备} \\
+\hline
+\endhead
+内容一（复杂度的可计算度量） & 扩散模型采样实现、数值分析与 ODE 求解器经验 & 〔填写〕 \\
+\hline
+内容二（受控分布族的误差—复杂度关系） & 中大规模模型训练与评测的工程能力、分布族构造经验 & 〔填写〕 \\
+\hline
+内容三（临界复杂度与下界） & 逼近论、采样复杂度或最优传输的理论基础 & 〔填写〕 \\
+\hline
+内容四（可认证的加速准则） & 多步采样器实现与公平对比实验的经验 & 〔填写〕 \\
+\hline
+\end{longtable}
+
+\subsubsection*{1.2　可行性分析}
+
+\paragraph{1.2.1　科学问题的可解性}
+
+本项目所依赖的两个前提均已在文献中获得独立支持。
+
+其一，\textbf{"把步数当作计算资源来刻画"这一路线已被证明可行}。掩码扩散模型的表达能力已在"有限精度对数宽度"这一受限设定下得到干净刻画，并给出其相对思维链增强 Transformer 严格更高效的函数类［6］。这说明在精确限定的设定下，采样步数与计算能力之间可以建立可证明的关系，而非只能停留在经验观察。
+
+其二，\textbf{该领域已具备"用精确构造界定结论适用范围"的研究传统}。标准离散扩散训练 ELBO 不描述使用非均匀规划器的去噪器，这一结论是在"非均匀 planner"这一精确构造下被证明的［7］；标准 pullback 解码迫使测地线退化为直线段，这一证伪限定在 pullback 这一特定构造上［8］；截断反传的偏差与方差刻画限定在该特定梯度估计上［9］。本项目沿用同一策略——先在受限设定下取得干净结论，再逐级放宽——因而在方法论上有直接先例可循。
+
+\paragraph{1.2.2　技术路线的可行性}
+
+四项研究内容均建立在已有工具之上，不依赖尚不存在的方法：
+
+\begin{itemize}[leftmargin=2em,itemsep=2pt,topsep=3pt]
+  \item \textbf{内容一、二}：受控分布族采用高维高斯混合，其 score 函数有解析形式，概率流 ODE 轨迹可被任意精度积分，因而"复杂度真值"可计算，度量估计器的误差可被独立评估。
+  \item \textbf{内容三}：下界证明所用的逼近论（宽度—深度权衡、度量熵）、采样复杂度（minimax 下界）与最优传输（Wasserstein 收缩性）均为成熟数学分支，问题在于如何把它们与分布族的复杂度度量对接，而非需要发明新工具。
+  \item \textbf{内容四}：安全步数映射可通过在标准模型上的对照实验直接验证，属可控的实验设计。
+\end{itemize}
+
+\paragraph{1.2.3　研究风险的应对措施}
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|}
+\hline
+\textbf{风险} & \textbf{具体表现} & \textbf{应对措施} \\
+\hline
+\endfirsthead
+\hline
+\textbf{风险} & \textbf{具体表现} & \textbf{应对措施} \\
+\hline
+\endhead
+\textbf{R1 复杂度度量不唯一} & 三种候选度量（路径长度 / 速度场总变差 / 雅可比谱衰减率）可能互相独立，导致"哪一个才是判据"无法确定 & 内容一首要任务即为刻画三者关系。若判定独立，则退而给出"各度量分别解释误差的哪一部分"，仍构成有效结论 \\
+\hline
+\textbf{R2 反例存在} & 可能构造出轨迹复杂度高、但单步一致性映射误差仍低的分布族，直接否证假说 & 内容二已把反例搜索列为既定任务。反例的结构分析将直接指向可压缩性的真正判据，因此否定结果同样产出明确结论 \\
+\hline
+\textbf{R3 下界过强难以证明} & "对所有单步映射成立"的下界可能无法在一般设定下证明 & 采用逐级放宽策略，先取得 Lipschitz 受限 + 有限精度下的条件性结果。该策略有直接成功先例［6］ \\
+\hline
+\textbf{R4 探针估计精度不足} & 少量探针可能达不到判据所需的估计精度 & 引入曲率修正项；若精度仍不足，则把判据的适用条件明确限定为"探针估计误差可接受"的范围，并把该边界本身写入结论 \\
+\hline
+\textbf{R5 真实数据上判据失效} & 受控分布族上的结论可能无法迁移到 ImageNet 等真实分布 & 验证方案中并列受控族与真实基准两组实验；若真实数据上失效，则给出"判据适用于哪类分布"的边界刻画——这本身是有价值的结论 \\
+\hline
+\textbf{R6 算力不足} & 真实数据基准实验的算力需求可能超出本单位条件 & 见 2.2 节"尚缺少的实验条件与拟解决的途径" \\
+\hline
+\end{longtable}
+
+\paragraph{1.2.4　可行性总体判断}
+
+本项目问题定义清晰、所需工具成熟、风险已逐项给出预案，且\textbf{无论假说成立与否都有明确产出}——成立则给出判据与临界复杂度，不成立则由反例结构给出真正的可压缩性判据。研究方案具有可行性。
+
+\subsection*{2.工作条件（包括已具备的实验条件，尚缺少的实验条件和拟解决的途径，包括利用国家实验室、全国重点实验室和部门重点实验室等研究基地的计划与落实情况）；}
+
+\subsubsection*{2.1　依托单位与研究平台}
+
+〔填写：依托单位名称；所在实验室/研究中心的名称与级别（如全国重点实验室、省部级重点实验室）；与本项目相关的平台资质与研究方向。〕
+
+\subsubsection*{2.2　已具备的实验条件}
+
+\textbf{（1）计算资源。} 〔填写：GPU 型号与数量（如 NVIDIA A100 80GB × N 块）、总算力规模（如约 X PFLOPS FP16）、显存总量、存储容量与网络互联方式（如 InfiniBand）。〕
+
+\textbf{（2）软件与开发环境。} 〔填写：深度学习框架、分布式训练框架、实验管理工具等。〕
+
+\textbf{（3）数据资源。} 〔填写：可用的公开数据集（ImageNet、CelebA-HQ 等）及其获取方式与合法性；自建资源（如受控分布族生成脚本、复杂度计算工具）的现状。〕
+
+\textbf{（4）基座模型。} DiT、SiT 等开源基座模型的官方预训练权重可公开获取，本项目的一致性蒸馏实验以这些权重为起点，保证与既有工作的可比性。
+
+\subsubsection*{2.3　尚缺少的实验条件与拟解决的途径}
+
+\begin{quote}\small
+本节为官方模板明确要求，不可省略。请据实填写。
+
+\end{quote}
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|>{\raggedright\arraybackslash}p{0.300\linewidth}|}
+\hline
+\textbf{尚缺少的条件} & \textbf{对本项目的影响} & \textbf{拟解决的途径} \\
+\hline
+\endfirsthead
+\hline
+\textbf{尚缺少的条件} & \textbf{对本项目的影响} & \textbf{拟解决的途径} \\
+\hline
+\endhead
+〔填写，例如：本单位 GPU 规模不足以完成 ImageNet 256 规模的一致性蒸馏实验〕 & 〔影响哪项研究内容、哪一阶段的实验〕 & 〔填写，例如：拟申请 XX 超算平台，已/拟于何时提交申请；或与 XX 单位合作使用其算力〕 \\
+\hline
+〔填写〕 &  &  \\
+\hline
+\end{longtable}
+
+\subsubsection*{2.4　研究基地利用计划与落实情况}
+
+〔填写：若拟利用国家实验室、全国重点实验室、部门重点实验室等研究基地，说明基地名称、利用方式（开放课题、合作研究、机时申请等）与落实情况（是否已建立联系、是否已有开放课题获批）。若本项目不涉及，填"无"。〕
+
+\subsection*{3.正在承担的与本项目相关的科研项目情况（申请人正在承担的与本项目相关的科研项目情况，包括国家自然科学基金的项目和国家其他科技计划项目，要注明项目的资助机构、项目类别、批准号、项目名称、获资助金额、起止年月、与本项目的关系及负责的内容等）；}
+
+〔按官方要求的字段逐项填写。无相关在研项目者填"无"。〕
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.113\linewidth}|>{\raggedright\arraybackslash}p{0.113\linewidth}|>{\raggedright\arraybackslash}p{0.113\linewidth}|>{\raggedright\arraybackslash}p{0.113\linewidth}|>{\raggedright\arraybackslash}p{0.113\linewidth}|>{\raggedright\arraybackslash}p{0.113\linewidth}|>{\raggedright\arraybackslash}p{0.113\linewidth}|>{\raggedright\arraybackslash}p{0.113\linewidth}|}
+\hline
+\textbf{资助机构} & \textbf{项目类别} & \textbf{批准号} & \textbf{项目名称} & \textbf{获资助金额} & \textbf{起止年月} & \textbf{本人负责的内容} & \textbf{与本项目的关系及区别} \\
+\hline
+\endfirsthead
+\hline
+\textbf{资助机构} & \textbf{项目类别} & \textbf{批准号} & \textbf{项目名称} & \textbf{获资助金额} & \textbf{起止年月} & \textbf{本人负责的内容} & \textbf{与本项目的关系及区别} \\
+\hline
+\endhead
+〔填写〕 &  &  &  &  &  &  &  \\
+\hline
+\end{longtable}
+
+\subsection*{4.完成国家自然科学基金项目情况（对申请人负责的前一个已资助期满的科学基金项目（项目名称及批准号）完成情况、后续研究进展及与本申请项目的关系加以详细说明。另附该项目的研究工作总结摘要（限500字）和相关成果详细目录）。}
+
+〔申请人若负责过已资助期满的国家自然科学基金项目，请按以下四项逐一说明；\textbf{未承担过国家自然科学基金项目者填"无"}——这不影响青年科学基金项目申请。〕
+
+\textbf{（1）项目名称及批准号。} 〔填写〕
+
+\textbf{（2）完成情况。} 〔填写：是否按期结题、结题评价、主要研究任务完成程度。〕
+
+\textbf{（3）后续研究进展。} 〔填写：结题后的延续性工作与产出。〕
+
+\textbf{（4）与本申请项目的关系。} 〔填写：本项目如何承接该项目，以及在研究问题上的推进。〕
+
+\textbf{（5）附件要求（官方明确要求，容易遗漏）。} 须另附：
+
+\begin{itemize}[leftmargin=2em,itemsep=2pt,topsep=3pt]
+  \item 该项目的研究工作总结\textbf{摘要（限 500 字）}；
+  \item 相关成果\textbf{详细目录}。
+\end{itemize}
+
+上述两项作为附件单独提交，不计入正文页码。
+
+\section*{（四）其他需要说明的情况：}
+
+\subsection*{1.申请人同年申请不同类型的国家自然科学基金项目情况（列明同年申请的其他项目的项目类型、项目名称信息，并说明与本项目之间的区别与联系；已收到自然科学基金委不予受理或不予资助决定的，无需列出）。}
+
+无。
+
+〔填写提示：若同年还申请了其他类型的国家自然科学基金项目，请列明其项目类型、项目名称，并说明与本项目之间的区别与联系。无则保留"无"。〕
+
+\subsection*{2.具有高级专业技术职务（职称）的申请人是否存在同年申请或者参与申请国家自然科学基金项目的单位不一致的情况；如存在上述情况，列明所涉及人员的姓名，申请或参与申请的其他项目的项目类型、项目名称、单位名称、上述人员在该项目中是申请人还是参与者，并说明单位不一致原因。}
+
+无。
+
+〔填写提示：仅当申请人在同年以不同单位申请或参与申请国家自然科学基金项目时才需填写。〕
+
+\subsection*{3.具有高级专业技术职务（职称）的申请人是否存在与正在承担的国家自然科学基金项目的单位不一致的情况；如存在上述情况，列明所涉及人员的姓名，正在承担项目的批准号、项目类型、项目名称、单位名称、起止年月，并说明单位不一致原因。}
+
+无。
+
+〔填写提示：仅当申请人正在承担的国家自然科学基金项目的承担单位与本次申请单位不一致时才需填写。〕
+
+\subsection*{4.同年以不同专业技术职务（职称）申请或参与申请科学基金项目的情况（应详细说明原因）。}
+
+无。
+
+〔填写提示：仅当申请人同年以不同职称申请或参与申请时才需填写。〕
+
+\subsection*{5.申请人在撰写本申请书时使用生成式人工智能的情况，请详细说明申请书中使用的位置和内容。}
+
+本项目在撰写过程中使用了生成式人工智能工具辅助，具体使用位置与内容如下。
+
+\textbf{（1）文献检索与元数据核验。} 使用自建检索工具在 arXiv、OpenReview、Crossref 等公开学术数据库执行文献检索、去重与元数据核验。所引 18 篇参考文献的题录信息全部取自会议官方发布渠道——其中 16 篇取自 OpenReview 会议官方 BibTeX，2 篇取自 arXiv 官方页面——并经标题一致性与作者一致性的交叉校验。该环节的产出为参考文献表，未涉及研究内容的生成。
+
+\textbf{（2）研究现状梳理。} 使用生成式人工智能工具对上述文献的公开摘要进行归纳，形成"加速机制""保分布理论""步数理论""能力重利用"四条研究主线的划分、三项结构性不足的提炼以及发展趋势判断的初稿。全部论断均标注了对应的文献编号，可逐条溯源。
+
+\textbf{（3）文字起草与格式检查。} 使用生成式人工智能工具起草立项依据与研究内容的论证文字，整理技术路线图与验证方案的表述结构，并执行引用双向一致性、格式合规性与篇幅的自动检查。该环节的产出为文字初稿与检查报告。
+
+\textbf{（4）未使用生成式人工智能的部分。} 本项目的\textbf{科学问题凝练、研究假说、研究内容划分、创新点提炼与研究方案设计}由申请人本人完成并最终定稿；\textbf{前期研究积累、工作条件、在研项目情况与预期研究成果}等事实性内容由申请人据实填写，未使用人工智能工具生成；所有引用的参考文献均可通过所附链接直接访问原文。
+
+〔填写提示：请申请人逐条核对上述说明与实际使用情况是否完全一致。官方要求"详细说明申请书中使用的位置和内容"，\textbf{披露不实属科研诚信问题}。如实际使用范围与上述不符，务必据实增删。〕
+
+\subsection*{6.其他（包括但不限于使用以他人名义申报过的申请书；如有，请详细说明）。}
+
+无。
+
+〔填写提示：如有其他需要说明的情况（包括使用以他人名义申报过的申请书），请在此详细说明。无则保留"无"。〕
+
+
+\end{document}

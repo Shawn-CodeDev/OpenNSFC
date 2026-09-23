@@ -1,0 +1,127 @@
+% =====================================================================
+%  OpenNFSC · 技术路线图模板（纯 TikZ，矢量，无外部图片依赖）
+%  powered by gary
+% ---------------------------------------------------------------------
+%  用法：
+%    1. 复制本文件到 <正文.tex> 同目录，命名为 图1-技术路线图.tikz
+%       （即与正文中 Markdown 图片路径同名、仅扩展名不同）
+%    2. 把下面的〔待填〕内容换成你自己的研究内容
+%    3. 直接编译正文；bin/md2tex.mjs 会自动以 \input 嵌入本文件
+%
+%  为什么用 TikZ 而不是 PNG：
+%    · 矢量输出，放大不失真，评审打印后仍清晰
+%    · 无需 drawio/Visio 等外部工具，agent 可纯文本生成与修改
+%    · 单一 .tex 源文件即可复现整份稿件，便于版本管理
+%
+%  尺寸约定：整图宽度约 15cm，高度约 12cm，适配 A4 2.5cm 页边距的版心。
+%  节点 text width 已按此设定；若加长文字请同步调小 text width，避免溢出。
+% =====================================================================
+
+\begin{tikzpicture}[
+  font=\small,
+  % --- 样式定义 ---
+  goal/.style    = {draw=black!70, fill=blue!8,  rounded corners=2pt,
+                    align=center, minimum height=10mm, text width=140mm,
+                    inner sep=3pt},
+  content/.style = {draw=black!70, fill=green!10, rounded corners=2pt,
+                    align=center, minimum height=26mm, text width=43mm,
+                    inner sep=3pt},
+  method/.style  = {draw=black!60, fill=orange!12, rounded corners=2pt,
+                    align=center, minimum height=18mm, text width=43mm,
+                    inner sep=3pt},
+  verify/.style  = {draw=black!60, fill=violet!10, rounded corners=2pt,
+                    align=center, minimum height=18mm, text width=43mm,
+                    inner sep=3pt},
+  outcome/.style = {draw=black!70, fill=red!8,   rounded corners=2pt,
+                    align=center, minimum height=9mm,  text width=140mm,
+                    inner sep=3pt},
+  band/.style    = {draw=black!25, dashed, rounded corners=3pt, inner sep=6pt},
+  bandlabel/.style = {font=\small\bfseries, text=black!70},
+  ar/.style      = {-{Stealth[length=2.2mm,width=1.8mm]}, thick, draw=black!65},
+  arw/.style     = {ar, dashed},
+]
+
+% ---------------------------------------------------------------- 顶层
+\node[goal] (g) {%
+  \textbf{总体科学问题}\\[1pt]
+  〔一句话写清本项目要回答的科学问题，需是可被证伪的命题，而非研究领域名称〕};
+
+% ---------------------------------------------------- 第二层：研究内容
+\node[content, below=8mm of g] (c2) {%
+  \textbf{研究内容二}\\[2pt]
+  〔内容标题〕\\[3pt]
+  {\footnotesize 关键科学问题：〔…〕}\\[2pt]
+  {\footnotesize 拟解决的关键技术：〔…〕}};
+
+\node[content, left=4mm of c2] (c1) {%
+  \textbf{研究内容一}\\[2pt]
+  〔内容标题〕\\[3pt]
+  {\footnotesize 关键科学问题：〔…〕}\\[2pt]
+  {\footnotesize 拟解决的关键技术：〔…〕}};
+
+\node[content, right=4mm of c2] (c3) {%
+  \textbf{研究内容三}\\[2pt]
+  〔内容标题〕\\[3pt]
+  {\footnotesize 关键科学问题：〔…〕}\\[2pt]
+  {\footnotesize 拟解决的关键技术：〔…〕}};
+
+% -------------------------------------------- 第三层：方法 / 技术手段
+\node[method, below=7mm of c1] (m1) {%
+  \textbf{方法手段}\\[2pt]
+  {\footnotesize 〔理论工具 / 模型 / 算法〕}};
+\node[method, below=7mm of c2] (m2) {%
+  \textbf{方法手段}\\[2pt]
+  {\footnotesize 〔理论工具 / 模型 / 算法〕}};
+\node[method, below=7mm of c3] (m3) {%
+  \textbf{方法手段}\\[2pt]
+  {\footnotesize 〔理论工具 / 模型 / 算法〕}};
+
+% ------------------------------------------------ 第四层：验证与评估
+\node[verify, below=6mm of m1] (v1) {%
+  \textbf{验证方案}\\[2pt]
+  {\footnotesize 〔数据集 / 基线 / 指标〕}};
+\node[verify, below=6mm of m2] (v2) {%
+  \textbf{验证方案}\\[2pt]
+  {\footnotesize 〔数据集 / 基线 / 指标〕}};
+\node[verify, below=6mm of m3] (v3) {%
+  \textbf{验证方案}\\[2pt]
+  {\footnotesize 〔数据集 / 基线 / 指标〕}};
+
+% ---------------------------------------------------------------- 底层
+\node[outcome, below=9mm of v2] (o) {%
+  \textbf{预期成果}\quad
+  〔理论：…〕\ \textbullet\ 〔方法：…〕\ \textbullet\ 〔开源与数据：…〕};
+
+% 三条验证线的汇合点（在预期成果上方 5mm 处）
+\coordinate (join) at ([yshift=5mm]o.north);
+
+% ---------------------------------------------------------------- 连线
+\draw[ar] (g.south) -- ++(0,-4mm) -| (c1.north);
+\draw[ar] (g.south) -- ++(0,-4mm) -| (c2.north);
+\draw[ar] (g.south) -- ++(0,-4mm) -| (c3.north);
+
+\draw[ar] (c1) -- (m1);
+\draw[ar] (c2) -- (m2);
+\draw[ar] (c3) -- (m3);
+
+\draw[ar] (m1) -- (v1);
+\draw[ar] (m2) -- (v2);
+\draw[ar] (m3) -- (v3);
+
+\draw[ar] (v1.south) -- ++(0,-4mm) -| (join);
+\draw[ar] (v2.south) -- ++(0,-4mm) -- (join);
+\draw[ar] (v3.south) -- ++(0,-4mm) -| (join);
+\draw[ar] (join) -- (o.north);
+
+% 内容之间的横向协同（若你的三条内容互不耦合，删掉这两条虚线即可）
+\draw[arw] (c1.east) -- (c2.west);
+\draw[arw] (c2.east) -- (c3.west);
+
+% ------------------------------------------------- 分组边框与侧标
+\begin{scope}[on background layer]
+  \node[band, fit=(c1)(c2)(c3), label={[bandlabel]left:研究内容}] {};
+  \node[band, fit=(m1)(m2)(m3), label={[bandlabel]left:方法手段}] {};
+  \node[band, fit=(v1)(v2)(v3), label={[bandlabel]left:验证评估}] {};
+\end{scope}
+
+\end{tikzpicture}

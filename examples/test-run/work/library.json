@@ -1,0 +1,1122 @@
+{
+  "version": "1.0",
+  "updatedAt": "2026-09-22T14:56:02.568Z",
+  "query": null,
+  "records": [
+    {
+      "id": "arxiv:2502.00639",
+      "sources": [
+        "arxiv"
+      ],
+      "source": "arxiv",
+      "type": "conference",
+      "title": "Half-order Fine-Tuning for Diffusion Model: A Recursive Likelihood Ratio Optimizer",
+      "abstract": "The probabilistic diffusion model (DM), generating content by inferencing through a recursive chain structure, has emerged as a powerful framework for visual generation. After pre-training on enormous data, the model needs to be properly aligned to meet requirements for downstream applications. How to efficiently align the foundation DM is a crucial task. Contemporary methods are either based on Reinforcement Learning (RL) or truncated Backpropagation (BP). However, RL and truncated BP suffer from low sample efficiency and biased gradient estimation, respectively, resulting in limited improvement or, even worse, complete training failure. To overcome the challenges, we propose the Recursive Likelihood Ratio (RLR) optimizer, a Half-Order (HO) fine-tuning paradigm for DM. The HO gradient estimator enables the computation graph rearrangement within the recursive diffusive chain, making the RLR's gradient estimator an unbiased one with lower variance than other methods. We theoretically investigate the bias, variance, and convergence of our method. Extensive experiments are conducted on image and video generation to validate the superiority of the RLR. Furthermore, we propose a novel prompt technique that is natural for the RLR to achieve a synergistic effect.",
+      "authors": [
+        "Tao Ren",
+        "Zishi Zhang",
+        "Jinyang Jiang",
+        "Zehao Li",
+        "Shentao Qin",
+        "Yi Zheng",
+        "Guanghao Li",
+        "Qianyou Sun",
+        "Yan Li",
+        "Jiafeng Liang",
+        "Xinping Li",
+        "Yijie Peng"
+      ],
+      "year": 2025,
+      "venue": "ICLR 2026",
+      "arxivId": "2502.00639",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://arxiv.org/abs/2502.00639",
+      "session": "Oral Session 1B Generative models I",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": true,
+      "notes": {
+        "mainline": "M3-步数理论",
+        "role": "evidence",
+        "relevance": "high"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:dcfafb9175",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "DiffusionNFT: Online Diffusion Reinforcement with Forward Process",
+      "abstract": "(pages 22, main 4491w, abs 262w, refs 83, figs 13, tabs 2, eqs 26, share: int 14.3% rel 16.4% meth 37.9% exp 18.8% con 5.7%) Online reinforcement learning (RL) has been central to post-training language models, but its extension to diffusion models remains challenging due to intractable likelihoods. Recent works discretize the reverse sampling process to enable GRPO-style training, yet they inherit fundamental drawbacks, including solver restrictions, forward–reverse inconsistency, and complicated integration with classifier-free guidance (CFG). We introduce Diffusion Negative-aware FineTuning (DiffusionNFT), a new online RL paradigm that optimizes diffusion models directly on the forward process via flow matching. DiffusionNFT contrasts positive and negative generations to define an implicit policy improvement direction, naturally incorporating reinforcement signals into the supervised learning objective. This formulation enables training with arbitrary black-box solvers, eliminates the need for likelihood estimation, and requires only clean images rather than sampling trajectories for policy optimization. DiffusionNFT is up to 25× more efficient than FlowGRPO in head-to-head comparisons, while being CFGfree. For instance, DiffusionNFT improves the GenEval score from 0.24 to 0.98 within 1k steps, while FlowGRPO achieves 0.95 with over 5k steps and additional CFG employment. By leveraging multiple reward models, DiffusionNFT significantly boosts the performance of SD3.5-Medium in every benchmark tested. 0.60 0.65 0.70 0.75 0.80 0.85 0.90 0.95 1.00 25x Efficiency Flow-GRPO (0.95) DiffusionNFT (0.98) SD3.5-M (0.63) Training Time (GPU Hours) 0.20 SD3.5-M w/o CFG (0.24) GenEval Score (a) 0.94 0.91 23.80 0.29 0.33 6.01 1.49 3.49 GenEval OCR PickScore ClipScore HPSv2.1 Aesthetic ImageReward UnifiedReward SD3.5-M (w/o CFG) SD3.5-M FLUX.1-Dev SD3.5-M + NFT (w/o CFG) (b) Figure 1: Performance of DiffusionNFT. (a) Head-to-head comparison with FlowGRPO on the GenEval task. (b) By employing multiple reward models, DiffusionNFT significantly boosts the performance of SD3.5-Medium in every benchmark tested, while being fully CFG-free.",
+      "authors": [
+        "Kaiwen Zheng",
+        "Huayu Chen",
+        "Haotian Ye",
+        "Haoxiang Wang",
+        "Qinsheng Zhang",
+        "Kai Jiang",
+        "Hang Su",
+        "Stefano Ermon",
+        "Jun Zhu",
+        "Ming-Yu Liu"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/d8e68ddfe22520b45b8fb8d5cbde5a21-Paper-Conference.pdf",
+      "session": "Oral Session 1B Generative models I",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {
+        "mainline": "M3-步数理论",
+        "role": "evidence",
+        "relevance": "high",
+        "gap": "指出forward-reverse不一致，但未给一般失配度量"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "arxiv:2602.00737",
+      "sources": [
+        "arxiv"
+      ],
+      "source": "arxiv",
+      "type": "conference",
+      "title": "Pareto-Conditioned Diffusion Models for Offline Multi-Objective Optimization",
+      "abstract": "Multi-objective optimization (MOO) arises in many real-world applications where trade-offs between competing objectives must be carefully balanced. In the offline setting, where only a static dataset is available, the main challenge is generalizing beyond observed data. We introduce Pareto-Conditioned Diffusion (PCD), a novel framework that formulates offline MOO as a conditional sampling problem. By conditioning directly on desired trade-offs, PCD avoids the need for explicit surrogate models. To effectively explore the Pareto front, PCD employs a reweighting strategy that focuses on high-performing samples and a reference-direction mechanism to guide sampling towards novel, promising regions beyond the training data. Experiments on standard offline MOO benchmarks show that PCD achieves highly competitive performance and, importantly, demonstrates greater consistency across diverse tasks than existing offline MOO approaches.",
+      "authors": [
+        "Jatan Shrestha",
+        "Santeri Heiskanen",
+        "Kari Hepola",
+        "Severi Rissanen",
+        "Pekka Jääskeläinen",
+        "Joni Pajarinen"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "arxivId": "2602.00737",
+      "doi": "",
+      "journalRef": "",
+      "comment": "Accepted at ICLR 2026 (Oral). Project website: https://sites.google.com/view/pcd-iclr26",
+      "url": "https://arxiv.org/abs/2602.00737",
+      "session": "Oral Session 4B Learning to act",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": true,
+      "notes": {},
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:310db2137d",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "Quotient-Space Diffusion Models",
+      "abstract": "(pages 43, main 6009w, abs 178w, refs 62, figs 3, tabs 3, eqs 20, share: int 20.0% rel 14.2% meth 52.2% exp 9.7% con 0%) Diffusion-based generative models have reformed generative AI, and also enabled new capabilities in the science domain, e.g., fast generation of 3D structures of molecules. In such tasks, there is often a symmetry in the system, identifying elements that can be converted by certain transformations as equivalent. Equivariant diffusion models guarantee a symmetric distribution, but miss the opportunity to make learning easier, while alignment-based simplification attempts fail to preserve the target distribution. In this work, we develop quotient-space diffusion models, a principled generative framework to fully handle and leverage symmetry. By viewing the intrinsic generation process on the quotient space, the exact construction that removes symmetry redundancy, the framework simplifies learning by allowing model output to have an arbitrary intra-equivalence-class movement, while generating the correct symmetric target distribution with guarantee. We instantiate the framework for molecular structure generation which follows SE(3) (rigid-body movement) symmetry. It improves the performance over equivariant diffusion models and outperforms alignment-based methods universally for small molecules and proteins, representing a new framework that surpasses previous symmetry treatments in generative models.",
+      "authors": [
+        "Yixian Xu",
+        "Yusong Wang",
+        "Shengjie Luo",
+        "Kaiyuan Gao",
+        "Tianyu He",
+        "Di He",
+        "Chang Liu"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/ddbc4b54d1167f3c64ec639e388bf555-Paper-Conference.pdf",
+      "session": "Oral Session 6F AI for science III",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {
+        "mainline": "M2-保分布理论",
+        "role": "foundation",
+        "relevance": "high"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:99dfad89fa",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "Improving Diffusion Models for Class-imbalanced Training Data via Capacity Manipulation",
+      "abstract": "(pages 40, main 5493w, abs 159w, refs 91, figs 4, tabs 7, eqs 4, share: int 11.3% rel 0% meth 38.6% exp 43.4% con 2.5%) While diffusion models have achieved remarkable performance in image generation, they often struggle with the imbalanced datasets frequently encountered in real-world applications, resulting in significant performance degradation on minority classes. In this paper, we identify model capacity allocation as a key and previously underexplored factor contributing to this issue, providing a perspective that is orthogonal to existing research. Our empirical experiments and theoretical analysis reveal that majority classes monopolize an unnecessarily large portion of the model’s capacity, thereby restricting the representation of minority classes. To address this, we propose Capacity Manipulation (CM), which explicitly reserves model capacity for minority classes. Our approach leverages a low-rank decomposition of model parameters and introduces a capacity manipulation loss to allocate appropriate capacity for capturing minority knowledge, thus enhancing minority class representation. Extensive experiments demonstrate that CM consistently and significantly improves the robustness of diffusion models on imbalanced datasets, and when combined with existing methods, further boosts overall performance. 1",
+      "authors": [
+        "Feng Hong",
+        "Jiangchao Yao",
+        "Yifei Shen",
+        "Dongsheng Li",
+        "Ya Zhang",
+        "Yanfeng Wang"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/75c411b0a06fa9e78f2a516b57b2ce62-Paper-Conference.pdf",
+      "session": "Oral Session 1B Generative models I",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {},
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:0f8fccd061",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "GLASS Flows: Efficient Inference for Reward Alignment of Flow and Diffusion Models",
+      "abstract": "(pages 35, main 6111w, abs 174w, refs 127, figs 14, tabs 5, eqs 63, share: int 11.9% rel 16.7% meth 43.9% exp 21.3% con 3.0%) The performance of flow matching and diffusion models can be greatly improved at inference time using reward alignment algorithms, yet efficiency remains a major limitation. While several algorithms were proposed, we demonstrate that a common bottleneck is the sampling method these algorithms rely on: many algorithms require to sample Markov transitions via SDE sampling, which is significantly less efficient and often less performant than ODE sampling. To remove this bottleneck, we introduce GLASS Flows, a new sampling paradigm that simulates a “flow matching model within a flow matching model” to sample Markov transitions. As we show in this work, this “inner” flow matching model can be retrieved from a pre-trained model without any re-training, combining the efficiency of ODEs with the stochastic evolution of SDEs. On large-scale text-to-image models, we show that GLASS Flows eliminate the trade-off between stochastic evolution and efficiency. Combined with Feynman-Kac Steering, GLASS Flows improve state-of-the-art performance in text-to-image generation, making it a simple, drop-in solution for inference-time scaling of flow and diffusion models.",
+      "authors": [
+        "Peter Holderrieth",
+        "Uriel Singer",
+        "Tommi Jaakkola",
+        "Ricky T. Q. Chen",
+        "Yaron Lipman",
+        "Brian Karrer"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/ad6ac52e02e14e0f2ddc0d4587ab47f1-Paper-Conference.pdf",
+      "session": "Oral Session 1B Generative models I",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {
+        "mainline": "M1-加速机制",
+        "role": "baseline",
+        "relevance": "high",
+        "gap": "消除随机性—效率权衡，但未给采样步数下界"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:b9b0753754",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "The Spacetime of Diffusion Models: An Information Geometry Perspective",
+      "abstract": "(pages 25, main 4316w, abs 195w, refs 67, figs 8, tabs 1, eqs 66, share: int 10.3% rel 10.4% meth 28.3% exp 37.7% con 7.8%) We present a novel geometric perspective on the latent space of diffusion models. We first show that the standard pullback approach, utilizing the deterministic probability flow ODE decoder, is fundamentally flawed. It provably forces geodesics to decode as straight segments in data space, effectively ignoring any intrinsic data geometry beyond the ambient Euclidean space. Complementing this view, diffusion also admits a stochastic decoder via the reverse SDE, which enables an information geometric treatment with the Fisher-Rao metric. However, a choice of xT as the latent representation collapses this metric due to memorylessness. We address this by introducing a latent spacetime z = (xt, t) that indexes the family of denoising distributions p(x0|xt) across all noise scales, yielding a nontrivial geometric structure. We prove these distributions form an exponential family and derive simulation-free estimators for curve lengths, enabling efficient geodesic computation. The resulting structure induces a principled Diffusion Edit Distance, where geodesics trace minimal sequences of noise and denoise edits between data. We also demonstrate benefits for transition path sampling in molecular systems, including constrained variants such as low-variance transitions and region avoidance. Code is available at https://github.com/Aalto-QuML/spacetime-geometry.",
+      "authors": [
+        "Rafał Karczewski",
+        "Markus Heinonen",
+        "Alison Pouplin",
+        "Søren Hauberg",
+        "Vikas Garg"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/ad2b3b0963114adddbd2c97d6e74abb9-Paper-Conference.pdf",
+      "session": "Oral Session 6B Generative models II",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {
+        "mainline": "M3-步数理论",
+        "role": "foundation",
+        "relevance": "high",
+        "gap": "证伪pullback几何，但未问轨迹长度与步数的关系"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "arxiv:2509.24695",
+      "sources": [
+        "arxiv"
+      ],
+      "source": "arxiv",
+      "type": "conference",
+      "title": "SANA-Video: Efficient Video Generation with Block Linear Diffusion Transformer",
+      "abstract": "We introduce SANA-Video, a small diffusion model that can efficiently generate videos up to 720x1280 resolution and minute-length duration. SANA-Video synthesizes high-resolution, high-quality and long videos with strong text-video alignment at a remarkably fast speed, deployable on RTX 5090 GPU. Two core designs ensure our efficient, effective and long video generation: (1) Linear DiT: We leverage linear attention as the core operation, which is more efficient than vanilla attention given the large number of tokens processed in video generation. (2) Constant-Memory KV cache for Block Linear Attention: we design block-wise autoregressive approach for long video generation by employing a constant-memory state, derived from the cumulative properties of linear attention. This KV cache provides the Linear DiT with global context at a fixed memory cost, eliminating the need for a traditional KV cache and enabling efficient, minute-long video generation. In addition, we explore effective data filters and model training strategies, narrowing the training cost to 12 days on 64 H100 GPUs, which is only 1% of the cost of MovieGen. Given its low cost, SANA-Video achieves competitive performance compared to modern state-of-the-art small diffusion models (e.g., Wan 2.1-1.3B and SkyReel-V2-1.3B) while being 16x faster in measured latency. Moreover, SANA-Video can be deployed on RTX 5090 GPUs with NVFP4 precision, accelerating the inference speed of generating a 5-second 720p video from 71s to 29s (2.4x speedup). In summary, SANA-Video enables low-cost, high-quality video generation.",
+      "authors": [
+        "Junsong Chen",
+        "Yuyang Zhao",
+        "Jincheng YU",
+        "Ruihang Chu",
+        "Junyu Chen",
+        "Shuai Yang",
+        "Xianbang Wang",
+        "Yicheng Pan",
+        "Zhou Daquan",
+        "Huan Ling",
+        "Haozhe Liu",
+        "Hongwei Yi",
+        "Hao Zhang",
+        "Muyang Li",
+        "Yukang Chen",
+        "Han Cai",
+        "Sanja Fidler",
+        "Ping Luo",
+        "Song Han",
+        "Enze Xie"
+      ],
+      "year": 2025,
+      "venue": "ICLR 2026",
+      "arxivId": "2509.24695",
+      "doi": "",
+      "journalRef": "",
+      "comment": "21 pages, 15 figures, 7 tables",
+      "url": "https://arxiv.org/abs/2509.24695",
+      "session": "Oral Session 3B Image generation",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": true,
+      "notes": {
+        "mainline": "M1-加速机制",
+        "role": "method",
+        "relevance": "high"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "arxiv:2507.01957",
+      "sources": [
+        "arxiv"
+      ],
+      "source": "arxiv",
+      "type": "conference",
+      "title": "Locality-aware Parallel Decoding for Efficient Autoregressive Image Generation",
+      "abstract": "We present Locality-aware Parallel Decoding (LPD) to accelerate autoregressive image generation. Traditional autoregressive image generation relies on next-patch prediction, a memory-bound process that leads to high latency. Existing works have tried to parallelize next-patch prediction by shifting to multi-patch prediction to accelerate the process, but only achieved limited parallelization. To achieve high parallelization while maintaining generation quality, we introduce two key techniques: (1) Flexible Parallelized Autoregressive Modeling, a novel architecture that enables arbitrary generation ordering and degrees of parallelization. It uses learnable position query tokens to guide generation at target positions while ensuring mutual visibility among concurrently generated tokens for consistent parallel decoding. (2) Locality-aware Generation Ordering, a novel schedule that forms groups to minimize intra-group dependencies and maximize contextual support, enhancing generation quality. With these designs, we reduce the generation steps from 256 to 20 (256$\\times$256 res.) and 1024 to 48 (512$\\times$512 res.) without compromising quality on the ImageNet class-conditional generation, and achieving at least 3.4$\\times$ lower latency than previous parallelized autoregressive models.",
+      "authors": [
+        "Zhuoyang Zhang",
+        "Luke Huang",
+        "Chengyue Wu",
+        "Shang Yang",
+        "Kelly Peng",
+        "Yao Lu",
+        "Song Han"
+      ],
+      "year": 2025,
+      "venue": "ICLR 2026",
+      "arxivId": "2507.01957",
+      "doi": "",
+      "journalRef": "",
+      "comment": "ICLR 2026 Oral. The first two authors contributed equally to this work",
+      "url": "https://arxiv.org/abs/2507.01957",
+      "session": "Oral Session 3B Image generation",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": true,
+      "notes": {
+        "mainline": "M1-加速机制",
+        "role": "evidence",
+        "relevance": "high"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:7317446515",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "Diffusion Language Model Knows the Answer Before It Decodes",
+      "abstract": "(pages 19, main 5285w, abs 265w, refs 53, figs 5, tabs 7, eqs 5, share: int 10.0% rel 14.0% meth 20.1% exp 28.1% con 2.8%) Diffusion language models (DLMs) have recently emerged as an alternative to autoregressive approaches, offering parallel sequence generation and flexible token orders. However, their inference remains slower than that of autoregressive models, primarily due to the cost of bidirectional attention and the large number of refinement steps required for high-quality outputs. In this work, we highlight and leverage an overlooked property of DLMs—early answer convergence: in many cases, the correct answer can be internally identified by half steps before the final decoding step, under both semi-autoregressive and random remasking schedules. For example, on GSM8K and MMLU, up to 97% and 99% of instances, respectively, can be decoded correctly using only half of the refinement steps. Building on this observation, we introduce Prophet, a training-free fast decoding paradigm that enables early commit decoding. Specifically, Prophet dynamically decides whether to continue refinement or to go “all-in” (i.e. decode all remaining tokens in one step), using the confidence gap between the top-2 prediction candidates as the criterion. It integrates seamlessly into existing DLM implementations, incurs negligible overhead, and requires no additional training. Empirical evaluations on LLaDA-8B and Dream-7B across multiple tasks show that Prophet reduces the number of decoding steps by up to 3.4× while preserving high generation quality, and yields additional speedups when combined with existing acceleration methods. These results recast DLM decoding as a problem of when to stop sampling, and demonstrate that early answer convergence provides a simple yet powerful mechanism for accelerating DLMs on reasoning, code, and planning tasks with identifiable answer regions. Our code is available at https://github.com/pixeli99/Prophet.",
+      "authors": [
+        "Pengxiang Li",
+        "Yefan Zhou",
+        "Dilxat Muhtar",
+        "Lu Yin",
+        "Shilin Yan",
+        "Li Shen",
+        "Yi Liang",
+        "Soroush Vosoughi",
+        "Shiwei Liu"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/daadbff4d4ea884ca3d9d389a1dfc61c-Paper-Conference.pdf",
+      "session": "Oral Session 5A LLMs",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {
+        "mainline": "M1-加速机制",
+        "role": "baseline",
+        "relevance": "high",
+        "gap": "早收敛现象未解释成因，阈值判据无错误率控制"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:a04b590a49",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "Compositional Diffusion with Guided search for Long-Horizon Planning",
+      "abstract": "(pages 15, main 5504w, abs 177w, refs 70, figs 7, tabs 5, eqs 6, share: int 11.7% rel 18.4% meth 25.8% exp 33.9% con 6.5%) Generative models have emerged as powerful tools for planning, with compositional approaches offering particular promise for modeling long-horizon task distributions by composing together local, modular generative models. This compositional paradigm spans diverse domains, from multi-step manipulation planning to panoramic image synthesis to long video generation. However, compositional generative models face a critical challenge: when local distributions are multimodal, existing composition methods average incompatible modes, producing plans that are neither locally feasible nor globally coherent. We propose Compositional Diffusion with Guided Search (CDGS), which addresses this mode averaging problem by embedding search directly within the diffusion denoising process. Our method explores diverse combinations of local modes through populationbased sampling, enforces global consistency through iterative resampling between overlapping segments, and prunes infeasible candidates using likelihood-based ﬁltering. CDGS matches oracle performance on seven robot manipulation tasks, outperforming baselines that lack compositionality or require long-horizon training data. The approach generalizes across domains, enabling coherent text-guided panoramic images and long videos through effective local-to-global message passing. More details: https://cdgsearch.github.io/",
+      "authors": [
+        "Utkarsh Mishra",
+        "David He",
+        "Yongxin Chen",
+        "Danfei Xu"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/6fbe71b59655e4def01de69adbe7df6a-Paper-Conference.pdf",
+      "session": "Oral Session 4B Learning to act",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {
+        "mainline": "M2-保分布理论",
+        "role": "method",
+        "relevance": "high"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:e68c825fd0",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "Spherical Watermark: Encryption-Free, Lossless Watermarking for Diffusion Models",
+      "abstract": "(pages 33, main 5334w, abs 186w, refs 107, figs 17, tabs 17, eqs 77, share: int 10.6% rel 8.4% meth 35.1% exp 36.7% con 5.1%) Diffusion models have revolutionized image synthesis but raise concerns around content provenance and authenticity. Digital watermarking offers a means of tracing generated media, yet traditional schemes often introduce distributional shifts and degrade visual quality. Recent lossless methods embed watermark bits directly into the latent Gaussian prior without modifying model weights, but still require per-image key storage or heavy cryptographic overhead. In this paper, we introduce Spherical Watermark, an encryption-free and lossless watermarking framework that integrates seamlessly with diffusion architectures. First, our binary embedding module mixes repeated watermark bits with random padding to form a highentropy code. Second, the spherical mapping module projects this code onto the unit sphere, applies an orthogonal rotation, and scales by a chi-square-distributed radius to recover exact multivariate Gaussian noise. We theoretically prove that the watermarked noise distribution preserves the target prior up to third-order moments, and empirically demonstrate that it is statistically indistinguishable from a standard multivariate normal distribution. Adopting Stable Diffusion, extensive experiments confirm that Spherical Watermark consistently preserves high visual fidelity while simultaneously improving traceability, computational efficiency, and robustness under attacks, thereby outperforming both lossy and lossless approaches.",
+      "authors": [
+        "Xiaoxiao Hu",
+        "Jiaqi Jin",
+        "Sheng Li",
+        "Wanli Peng",
+        "Xinpeng Zhang",
+        "Zhenxing Qian"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/bb97e9a7c811904c9b01f51fde66edcf-Paper-Conference.pdf",
+      "session": "Oral Session 6B Generative models II",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {
+        "mainline": "M2-保分布理论",
+        "role": "evidence",
+        "relevance": "high"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:adf6a5f030",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "Planner Aware Path Learning in Diffusion Language Models Training",
+      "abstract": "(pages 46, main 6050w, abs 233w, refs 98, figs 6, tabs 7, eqs 40, share: int 15.6% rel 18.6% meth 30.7% exp 21.4% con 9.1%) Diffusion language models have emerged as a powerful alternative to autoregressive models, enabling fast inference through more flexible and parallel generation paths. This flexibility of sampling is unlocked by new engineered sampling strategies, or planners, that select more favorable generation paths by iteratively planning—versus uniformly at random—where to denoise along the sequence. However, by modifying the reverse paths via planning, planners create an irrevocable mismatch between the uniformly random denoising paths assumed during training and planning-based inference. In this paper, we systematically investigate the mismatch of discrete diffusion training and inference under planning and theoretically prove that the standard discrete diffusion training evidence lower bound (ELBO) does not accurately describe a denoiser that uses a non-uniform planner. To address this gap, we derive a new planned evidence lower bound (P-ELBO) that incorporates planner-based reverse dynamics directly into the training objective. Using the P-ELBO, we introduce Planner Aware Path Learning (PAPL), a novel training scheme that aligns training and inference under a planned denoiser. PAPL is implemented as a simple yet effective modification to the standard masked discrete diffusion loss, making it widely applicable and easy to adopt. Empirically, we show PAPL delivers consistent gains across domains, including a 40% relative improvement in protein sequences, improved text generation with up to a 4× relative MAUVE gain, and 23% relative improvement in code generation HUMANEVAL pass@10. Code is available at github.com/pengzhangzhi/PAPL.",
+      "authors": [
+        "Zhangzhi Peng",
+        "Zachary Bezemek",
+        "Jarrid Rector-Brooks",
+        "Shuibai Zhang",
+        "Michael Bronstein",
+        "Anru Zhang",
+        "Joey Bose",
+        "Alexander Tong"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/cdc1d08ee82d4818758d229abb7f1ce8-Paper-Conference.pdf",
+      "session": "Oral Session 5A LLMs",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {
+        "mainline": "M3-步数理论",
+        "role": "foundation",
+        "relevance": "high",
+        "gap": "证明标准ELBO不描述非均匀planner，但失配程度未被度量"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "arxiv:2510.04188",
+      "sources": [
+        "arxiv"
+      ],
+      "source": "arxiv",
+      "type": "conference",
+      "title": "Let Features Decide Their Own Solvers: Hybrid Feature Caching for Diffusion Transformers",
+      "abstract": "Diffusion Transformers offer state-of-the-art fidelity in image and video synthesis, but their iterative sampling process remains a major bottleneck due to the high cost of transformer forward passes at each timestep. To mitigate this, feature caching has emerged as a training-free acceleration technique that reuses or forecasts hidden representations. However, existing methods often apply a uniform caching strategy across all feature dimensions, ignoring their heterogeneous dynamic behaviors. Therefore, we adopt a new perspective by modeling hidden feature evolution as a mixture of ODEs across dimensions, and introduce HyCa, a Hybrid ODE solver inspired caching framework that applies dimension-wise caching strategies. HyCa achieves near-lossless acceleration across diverse domains and models, including 5.55 times speedup on FLUX, 5.56 times speedup on HunyuanVideo, 6.24 times speedup on Qwen-Image and Qwen-Image-Edit without retraining.",
+      "authors": [
+        "Shikang Zheng",
+        "Guantao Chen",
+        "Qinming Zhou",
+        "Yuqi Lin",
+        "Lixuan He",
+        "Chang Zou",
+        "Peiliang Cai",
+        "Jiacheng Liu",
+        "Linfeng Zhang"
+      ],
+      "year": 2025,
+      "venue": "ICLR 2026",
+      "arxivId": "2510.04188",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://arxiv.org/abs/2510.04188",
+      "session": "Oral Session 1B Generative models I",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": true,
+      "notes": {
+        "mainline": "M1-加速机制",
+        "role": "baseline",
+        "relevance": "high",
+        "gap": "全维度统一缓存，忽略异质动态；\"近无损\"仅为经验断言"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "arxiv:2510.13117",
+      "sources": [
+        "arxiv"
+      ],
+      "source": "arxiv",
+      "type": "conference",
+      "title": "On the Reasoning Abilities of Masked Diffusion Language Models",
+      "abstract": "Masked diffusion models (MDMs) for text offer a compelling alternative to traditional autoregressive language models. Parallel generation makes them efficient, but their computational capabilities and the limitations inherent in their parallelism remain largely unexplored. To this end, we characterize what types of reasoning problems MDMs can provably solve and how efficiently. We do this by connecting MDMs to the well-understood reasoning frameworks of chain of thought (CoT) and padded looped transformers (PLTs) in the finite-precision log-width setting: We show that MDMs and polynomially-padded PLTs are, in fact, equivalent in this setting, and that MDMs can solve all problems that CoT-augmented transformers can. Moreover, we showcase classes of problems (including regular languages) for which MDMs are inherently more efficient than CoT transformers, where parallel generation allows for substantially faster reasoning.",
+      "authors": [
+        "Anej Svete",
+        "Ashish Sabharwal"
+      ],
+      "year": 2025,
+      "venue": "ICLR 2026",
+      "arxivId": "2510.13117",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://arxiv.org/abs/2510.13117",
+      "session": "Oral Session 5A LLMs",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": true,
+      "notes": {
+        "mainline": "M3-步数理论",
+        "role": "foundation",
+        "relevance": "high",
+        "gap": "结论系于有限精度对数宽度设定，刻画可解性而非步数下界"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "arxiv:2503.07982",
+      "sources": [
+        "arxiv"
+      ],
+      "source": "arxiv",
+      "type": "conference",
+      "title": "TRACE: Your Diffusion Model is Secretly an Instance Edge Detector",
+      "abstract": "High-quality instance and panoptic segmentation has traditionally relied on dense instance-level annotations such as masks, boxes, or points, which are costly, inconsistent, and difficult to scale. Unsupervised and weakly-supervised approaches reduce this burden but remain constrained by semantic backbone constraints and human bias, often producing merged or fragmented outputs. We present TRACE (TRAnsforming diffusion Cues to instance Edges), showing that text-to-image diffusion models secretly function as instance edge annotators. TRACE identifies the Instance Emergence Point (IEP) where object boundaries first appear in self-attention maps, extracts boundaries through Attention Boundary Divergence (ABDiv), and distills them into a lightweight one-step edge decoder. This design removes the need for per-image diffusion inversion, achieving 81x faster inference while producing sharper and more connected boundaries. On the COCO benchmark, TRACE improves unsupervised instance segmentation by +5.1 AP, and in tag-supervised panoptic segmentation it outperforms point-supervised baselines by +1.7 PQ without using any instance-level labels. These results reveal that diffusion models encode hidden instance boundary priors, and that decoding these signals offers a practical and scalable alternative to costly manual annotation. Project Page: this https URL",
+      "authors": [
+        "Sanghyun Jo",
+        "Ziseok Lee",
+        "Wooyeol Lee",
+        "Jonghyun Choi",
+        "Jaesik Park",
+        "Kyungsu Kim"
+      ],
+      "year": 2025,
+      "venue": "ICLR 2026",
+      "arxivId": "2503.07982",
+      "doi": "",
+      "journalRef": "",
+      "comment": "Accepted to ICLR 2026 (Oral)",
+      "url": "https://arxiv.org/abs/2503.07982",
+      "session": "Oral Session 5B Video and scene generation",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": true,
+      "notes": {
+        "mainline": "M4-能力重利用",
+        "role": "evidence",
+        "relevance": "high",
+        "gap": "单步蒸馏成功但未给出区分\"可行/不可行\"任务的判据"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:4449dff709",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "VibeVoice: Expressive Podcast Generation with Next-Token Diffusion",
+      "abstract": "(pages 22, main 4644w, abs 184w, refs 122, figs 6, tabs 11, eqs 6, share: int 12.6% rel 12.9% meth 28.0% exp 39.8% con 1.9%) Generating long-form, multi-speaker conversational audio like podcasts poses significant challenges for traditional Text-to-Speech (TTS) systems, particularly in scalability, speaker consistency, and natural turn-taking. We present VIBEVOICE, a novel model designed to synthesize expressive, long-form speech with multiple speakers in a zero-shot manner. A core component of our approach is the continuous speech tokenizers operating at an ultra-low frame rate of 7.5. This tokenizer effectively preserves audio fidelity while significantly boosting computational efficiency for processing long sequences. To facilitate training on authentic conversational dynamics, we have developed an annotation pipeline that generates pseudo transcriptions and turn-taking labels for extensive podcast data. Leveraging this data and our efficient tokenizer, VIBEVOICE employs the next-token diffusion framework. This enables VIBEVOICE to: (1) synthesize long-form speech (up to 90 minutes) with up to 4 speakers, surpassing the typical 1-2 speaker limits of many prior models; and (2) achieve a high degree of naturalness in turn-taking, pacing, and the rendition of subtle non-lexical cues (such as breaths and lip smacks), which are crucial for listener immersion and capturing the authentic vibe of expressive conversations. Code and checkpoint are available at https://github.com/microsoft/VibeVoice.",
+      "authors": [
+        "Zhiliang Peng",
+        "Jianwei Yu",
+        "Wenhui Wang",
+        "Yaoyao Chang",
+        "Yutao Sun",
+        "Li Dong",
+        "Yi Zhu",
+        "Weijiang Xu",
+        "Hangbo Bao",
+        "Zehua Wang",
+        "Shaohan Huang",
+        "Yan Xia",
+        "Furu Wei"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/a473664dcd474b42147dd35a76311631-Paper-Conference.pdf",
+      "session": "Oral Session 3B Image generation",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {},
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:11bdd29429",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "Exploratory Diffusion Model for Unsupervised Reinforcement Learning",
+      "abstract": "(pages 31, main 5068w, abs 167w, refs 155, figs 9, tabs 6, eqs 37, share: int 16.1% rel 16.9% meth 30.7% exp 26.3% con 5.9%) Unsupervised reinforcement learning (URL) pre-trains agents by exploring diverse states in reward-free environments, aiming to enable efficient adaptation to various downstream tasks. Without extrinsic rewards, prior methods rely on intrinsic objectives, but heterogeneous exploration data demand strong modeling capacity for both intrinsic reward design and policy learning. We introduce the Exploratory Diffusion Model (ExDM), which leverages the expressive power of diffusion models to fit diverse replay-buffer distributions, thus providing accurate density estimates and a score-based intrinsic reward that drives exploration into under-visited regions. This mechanism substantially broadens state coverage and yields robust pre-trained policies. Beyond exploration, ExDM offers theoretical guarantees and practical algorithms for fine-tuning diffusion policies under limited interactions, overcoming instability and computational overhead from multi-step sampling. Extensive experiments on Maze2d and URLB show that ExDM achieves superior exploration and faster downstream adaptation, establishing new state-of-the-art results, particularly in environments with complex structure or cross-embodiment settings. The source code is provided at https://github.com/yingchengyang/ExDM.",
+      "authors": [
+        "Chengyang Ying",
+        "Huayu Chen",
+        "Xinning Zhou",
+        "Zhongkai Hao",
+        "Hang Su",
+        "Jun Zhu"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/04b943ec09ae71cc0fac482fb3edf8d8-Paper-Conference.pdf",
+      "session": "Oral Session 4B Learning to act",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {},
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:f23f999b36",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "NextStep-1: Toward Autoregressive Image Generation with Continuous Tokens at Scale",
+      "abstract": "(pages 23, main 4535w, abs 127w, refs 101, figs 4, tabs 6, eqs 4, share: int 14.5% rel 11.6% meth 65.1% exp 0% con 5.0%) Prevailing autoregressive (AR) models for text-to-image generation either rely on heavy, computationally-intensive diffusion models to process continuous image tokens, or employ vector quantization (VQ) to obtain discrete tokens with quantization loss. In this paper, we push the autoregressive paradigm forward with NextStep-1, a 14B autoregressive model paired with a 157M flow matching head, trained on discrete text tokens and continuous image tokens with next-token prediction objectives. NextStep-1 achieves state-of-the-art performance for autoregressive models in text-to-image generation tasks, exhibiting strong capabilities in high-fidelity image synthesis. Furthermore, our method shows strong performance in image editing, highlighting the power and versatility of our unified approach. To facilitate open research, we have released our code and models to the community at https://github.com/stepfun-ai/NextStep-1.",
+      "authors": [
+        "chunrui han",
+        "Guopeng Li",
+        "Jingwei Wu",
+        "Quan Sun",
+        "Yan Cai",
+        "Yuang Peng",
+        "Zheng Ge",
+        "Deyu Zhou",
+        "Haomiao Tang",
+        "Hongyu Zhou",
+        "Kenkun Liu",
+        "Shu-Tao Xia",
+        "Binxing Jiao",
+        "Daxin Jiang",
+        "Xiangyu Zhang",
+        "Yibo Zhu"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/974ff7b5bf08dbf9400b5d599a39c77f-Paper-Conference.pdf",
+      "session": "Oral Session 3B Image generation",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {},
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:b2f5d263a0",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "Structured Flow Autoencoders: Learning Structured Probabilistic Representations with Flow Matching",
+      "abstract": "(pages 22, main 5553w, abs 162w, refs 48, figs 10, tabs 4, eqs 17, share: int 22.5% rel 0% meth 32.6% exp 31.4% con 0%) Flow matching is a powerful approach for high-fidelity density estimation, but it often fails to capture the latent structure of complex data. Probabilistic models like variational autoencoders (VAEs), on the other hand, learn structured representations but underperform in sample quality. We propose Structured Flow Autoencoders (SFA), a family of probabilistic models that augments graphical models with conditional continuous normalizing flow (CNF) likelihoods, enabling flow-matching-based structured representation learning. At the core of SFA is a novel flow matching objective that explicitly accounts for latent variables, allowing joint learning of the CNF likelihood and posterior. SFA applies broadly to graphical models with continuous and mixture latents, as well as latent dynamical systems. Empirical studies across image, video, and RNA-seq data show that SFA consistently outperforms VAEs and their structured extensions in generation quality, representation utility, and scalability to large datasets. Compared to generative models like latent flow matching (LatentFM), SFA also produces more diverse samples, suggesting better coverage of the data distribution.",
+      "authors": [
+        "Yidan Xu",
+        "Yixin Wang",
+        "XuanLong Nguyen"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/f6fbaf131fa71b036d7b8c49379f3af4-Paper-Conference.pdf",
+      "session": "Oral Session 6B Generative models II",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {
+        "mainline": "M2-保分布理论",
+        "role": "method",
+        "relevance": "high"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:0c4406c95a",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "Advancing Image Classification with Discrete Diffusion Classification Modeling",
+      "abstract": "(pages 11, main 5698w, abs 166w, refs 56, figs 4, tabs 1, eqs 11, share: int 13.9% rel 7.3% meth 44.5% exp 23.8% con 2.7%) Image classification is a well-studied task in computer vision, and yet it remains challenging under high-uncertainty conditions, such as when input images are corrupted or training data are limited. Conventional classification approaches typically train models to directly predict class labels from input images, but this might lead to suboptimal performance in such scenarios. To address this issue, we propose Discrete Diffusion Classification Modeling (DiDiCM), a novel framework that leverages a diffusionbased procedure to model the posterior distribution of class labels conditioned on the input image. DiDiCM supports diffusion-based predictions either on class probabilities or on discrete class labels, providing flexibility in computation and memory trade-offs. We conduct a comprehensive empirical study demonstrating the superior performance of DiDiCM over standard classifiers, showing that a few diffusion iterations achieve higher classification accuracy on the ImageNet dataset compared to baselines, with accuracy gains increasing as the task becomes more challenging. We release our code at https://github.com/ omerb01/didicm.",
+      "authors": [
+        "Omer Belhasin",
+        "Shelly Golan",
+        "Ran El-Yaniv",
+        "Michael Elad"
+      ],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Belhasin_Advancing_Image_Classification_with_Discrete_Diffusion_Classification_Modeling_CVPR_2026_paper.pdf",
+      "session": "Oral Session 1C: Efficient Reasoning",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {},
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:088419300e",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "SmokeSVD: Smoke Reconstruction from A Single View via Progressive Novel View Synthesis and Refinement with Diffusion Models",
+      "abstract": "(pages 11, main 4490w, abs 197w, refs 55, figs 16, tabs 6, eqs 10, share: int 12.0% rel 7.9% meth 45.8% exp 25.6% con 4.4%) Reconstructing dynamic fluids from sparse views is a longstanding and challenging problem, due to the severe lack of 3D information from insufficient view coverage. While several pioneering approaches have attempted to address this issue using differentiable rendering or novel view synthesis, they are often limited by time-consuming optimization under ill-posed conditions. We propose SmokeSVD, an efficient and effective framework to progressively reconstruct dynamic smoke from a single video by integrating the generative capabilities of diffusion models with physically guided consistency optimization. Specifically, we first propose a physically guided side-view synthesizer based on diffusion models, which explicitly incorporates velocity field constraints to generate spatio-temporally consistent sideview images frame by frame, significantly alleviating the ill-posedness of single-view reconstruction. Subsequently, we iteratively refine novel-view images and reconstruct 3D density fields through a progressive multi-stage process that renders and enhances images from increasing viewing angles, generating high-quality multi-view sequences. Finally, *Corresponding Author. †Equal contribution. we estimate fine-grained density and velocity fields via differentiable advection by leveraging the Navier-Stokes equations. Our approach supports re-simulation and downstream applications while achieving superior reconstruction quality and computational efficiency compared to stateof-the-art methods.",
+      "authors": [
+        "Chen Li",
+        "Shanshan Dong",
+        "Sheng Qiu",
+        "Jianmin Han",
+        "Yibo Zhao",
+        "Zan Gao",
+        "Taku Komura",
+        "Kemeng Huang"
+      ],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Li_SmokeSVD_Smoke_Reconstruction_from_A_Single_View_via_Progressive_Novel_CVPR_2026_paper.pdf",
+      "session": "Oral Session 2D: Spatio-Temporal Reconstruction",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {},
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:90318944f9",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "PixelDiT: Pixel Diffusion Transformers for Image Generation",
+      "abstract": "(pages 10, main 4280w, abs 177w, refs 50, figs 5, tabs 5, eqs 0, share: int 15.0% rel 11.4% meth 30.3% exp 34.3% con 4.0%) Latent-space modeling has been the standard for Diffusion Transformers (DiTs). However, it relies on a two-stage ∗Work done while Yongsheng was an intern at NVIDIA. † Project Lead and Main Advising. pipeline where the pretrained autoencoder introduces lossy reconstruction, leading to error accumulation while hindering joint optimization. To address these issues, we propose PixelDiT, a single-stage, end-to-end model that eliminates the need for the autoencoder and learns the diffusion process directly in the pixel space. PixelDiT adopts a fully 14273 transformer-based architecture shaped by a dual-level design: a patch-level DiT that captures global semantics and a pixel-level DiT that refines texture details, enabling efficient training of a pixel-space diffusion model while preserving fine details. PixelDiT achieves 1.61 FID on ImageNet 256 and 1.81 FID on ImageNet 512, surpassing existing pixel generative models by a large margin. We further extend PixelDiT to text-to-image generation and pretrain it at the 10242 resolution in pixel space. It achieves 0.74 on GenEval and 83.5 on DPG-bench, approaching the best latent diffusion models. The project page is available pixeldit.github.io.",
+      "authors": [
+        "Yongsheng Yu",
+        "Wei Xiong",
+        "Weili Nie",
+        "Yichen Sheng",
+        "Shiqiu Liu",
+        "Jiebo Luo"
+      ],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Yu_PixelDiT_Pixel_Diffusion_Transformers_for_Image_Generation_CVPR_2026_paper.pdf",
+      "session": "Oral Session 3A: Generative Diffusion Modeling",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {},
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:f7fa7e297a",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "Guiding a Diffusion Model by Swapping Its Tokens",
+      "abstract": "(pages 10, main 4570w, abs 222w, refs 59, figs 8, tabs 7, eqs 5, share: int 18.5% rel 10.1% meth 15.9% exp 36.9% con 3.9%) Classifier-Free Guidance (CFG) is a widely used inferencetime technique to boost the image quality of diffusion models. Yet, its reliance on text conditions prevents its use in unconditional generation. We propose a simple method to enable CFG-like guidance for both conditional and unconditional generation. The key idea is to generate a perturbed prediction via simple token swap operations, and use the direction between it and the clean prediction to steer sampling towards higher-fidelity distributions. In practice, we swap pairs of most semantically dissimilar token latents in either spatial or channel dimensions. Unlike existing methods that apply perturbation in a global or less constrained manner, our approach selectively exchanges and recomposes token latents, allowing finer control over perturbation and its influence on generated samples. Experiments on MS-COCO 2014, MS-COCO 2017, and ImageNet datasets demonstrate that the proposed Self-Swap Guidance (SSG), when applied to popular diffusion models, outperforms previous condition-free methods in image fidelity and prompt alignment under different set-ups. Its fine-grained perturbation granularity also improves robustness, reducing side-effects across a wider range of perturbation strengths. Overall, SSG extends CFG to a broader scope of applications including both conditional and unconditional generation, and can be readily inserted into any diffusion model as a plug-in to gain immediate improvements. The code is available at https://github.com/VISION-SJTU/SSG.",
+      "authors": [
+        "Weijia Zhang",
+        "Yuehao Liu",
+        "Shanyan Guan",
+        "Wu Ran",
+        "Yanhao Ge",
+        "Wei Li",
+        "Chao Ma"
+      ],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Zhang_Guiding_a_Diffusion_Model_by_Swapping_Its_Tokens_CVPR_2026_paper.pdf",
+      "session": "Oral Session 3A: Generative Diffusion Modeling",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {},
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:d4f5f1737c",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "FUSER: Feed-Forward Multiview 3D Registration Transformer and SE(3)^N Diffusion Refinement",
+      "abstract": "(pages 11, main 5166w, abs 203w, refs 83, figs 5, tabs 5, eqs 13, share: int 16.5% rel 4.9% meth 52.5% exp 19.1% con 3.1%) Registration of multiview point clouds conventionally relies on extensive pairwise matching to build a pose graph for global synchronization, which is computationally expensive and inherently ill-posed without holistic geometric constraints. This paper proposes FUSER, the first feed-forward multiview registration transformer that jointly processes all scans in a unified, compact latent space to directly predict global poses without any pairwise estimation. To maintain tractability, FUSER encodes each scan into low-resolution superpoint features via a sparse 3D CNN that preserves absolute translation cues, and performs efficient intra- and inter-scan reasoning through a Geometric Alternating Attention module. Particularly, we transfer 2D attention priors from off-the-shelf foundation models to enhance 3D feature interaction and geometric consistency. Building upon FUSER, we further introduce FUSER-DF, an SE(3)N diffusion refinement framework to correct FUSER’s estimates via denoising in the joint SE(3)N space. FUSER acts as a surrogate multiview registration model to construct the denoiser, and a prior-conditioned SE(3)N variational lower bound is derived for denoising supervision. Extensive experiments on 3DMatch, ScanNet and ArkitScenes demonstrate that our approach achieves the superior registration accuracy and outstanding computational efficiency. Code is available at https://github.com/Jiang-HB/FUSER.",
+      "authors": [
+        "Haobo Jiang",
+        "Jin Xie",
+        "Jian Yang",
+        "Liang Yu",
+        "Jianmin Zheng"
+      ],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Jiang_FUSER_Feed-Forward_Multiview_3D_Registration_Transformer_and_SE3N_Diffusion_Refinement_CVPR_2026_paper.pdf",
+      "session": "Oral Session 2D: Spatio-Temporal Reconstruction",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {},
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:8a8dea57b3",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "Optical Flow Matching: Reframing Optical Flow as Continuous Transport Dynamics",
+      "abstract": "(pages 10, main 5000w, abs 193w, refs 61, figs 5, tabs 4, eqs 9, share: int 15.9% rel 8.4% meth 44.2% exp 23.5% con 4.1%) Modern optical flow estimation, though empowered by recent deep neural architectures, remains rooted in the discrete correspondence paradigm inherited from classical vision. Most networks infer frame-to-frame displacements, capturing where pixels move but not how motion evolves continuously through time. Yet physical motion in the real world follows smooth dynamics governed by underlying velocity fields, as long established in fluid mechanics and transport theory. To bridge this gap, we introduce Optical Flow Matching (OFM), a continuous formulation that learns a time-dependent velocity field to transport pixel coordinates along motion distribution coherent trajectories. A key component of our OFM is Triangle Velocities Synergy (TVS), a neat yet pragmatic geometric mechanism that provides a stable and physically meaningful velocity construction, ensuring that continuous transport remains well-defined. Combined with an Euler-based ODE solver, OFM yields flow fields that are temporally smooth, geometrically consistent, and process-interpretable. Experiments on Sintel, KITTI, and Spring demonstrate that OFM achieves state-of-the-art accuracy, enhanced temporal stability, and notably stronger cross-dataset generalization, advancing optical flow estimation from correspondence inference to continuous dynamical reasoning. Code is available at https://github.com/LA30/OFM.",
+      "authors": [
+        "Ao Luo",
+        "XIN LI",
+        "Fan Yang",
+        "Yuezun Li",
+        "Zhaoquan Yuan",
+        "SHAN ZHAO",
+        "Bing Su",
+        "Xiao WU"
+      ],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Luo_Optical_Flow_Matching_Reframing_Optical_Flow_as_Continuous_Transport_Dynamics_CVPR_2026_paper.pdf",
+      "session": "Oral Session 5A: Dynamic Perception",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {},
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:57da870303",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "SeaCache: Spectral-Evolution-Aware Cache for Accelerating Diffusion Models",
+      "abstract": "(pages 12, main 5192w, abs 160w, refs 76, figs 10, tabs 4, eqs 8, share: int 19.7% rel 7.1% meth 0% exp 29.6% con 2.8%) Diffusion models are a strong backbone for visual generation, but their inherently sequential denoising process leads to slow inference. Previous methods accelerate sampling by caching and reusing intermediate outputs based on feature distances between adjacent timesteps. However, existing caching strategies typically rely on raw feature differences that entangle content and noise. This design overlooks spectral evolution, where low-frequency structure appears early and high-frequency detail is refined later. We introduce Spectral-Evolution-Aware Cache (SeaCache), a training-free cache schedule that bases reuse decisions on a spectrally aligned representation. Through theoretical and empirical analysis, we derive a Spectral-Evolution-Aware (SEA) filter that preserves content-relevant components while suppressing noise. Employing SEA-filtered input features to estimate redundancy leads to dynamic schedules that adapt to content while respecting the spectral priors underlying the diffusion model. Extensive experiments on diverse visual generative models and the baselines show that SeaCache achieves state-ofthe-art latency-quality trade-offs. Codes are available at github.com/jiwoogit/SeaCache.",
+      "authors": [
+        "Jiwoo Chung",
+        "Sangeek Hyun",
+        "MinKyu Lee",
+        "Byeongju Han",
+        "Geonho Cha",
+        "Dongyoon Wee",
+        "Youngjun Hong",
+        "Jae-Pil Heo"
+      ],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chung_SeaCache_Spectral-Evolution-Aware_Cache_for_Accelerating_Diffusion_Models_CVPR_2026_paper.pdf",
+      "session": "Oral Session 3A: Generative Diffusion Modeling",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {
+        "mainline": "M1-加速机制",
+        "role": "baseline",
+        "relevance": "high",
+        "gap": "用原始特征差纠缠内容与噪声，忽略频谱演化；判决为启发式代理"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:3e70fb258a",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "Towards Photorealistic and Efficient Bokeh Rendering via Diffusion Framework",
+      "abstract": "(pages 10, main 4447w, abs 195w, refs 52, figs 7, tabs 2, eqs 3, share: int 16.2% rel 10.0% meth 28.8% exp 37.1% con 2.7%) Existing mobile devices are constrained by compact optical designs, such as small apertures, which make it difﬁcult to produce natural, optically realistic bokeh effects. Although recent learning-based methods have shown promising results, they still struggle with photos captured under high digital zoom levels, which often suffer from reduced resolution and loss of ﬁne details. A naive solution is to enhance image quality before applying bokeh rendering, yet this twostage pipeline reduces efﬁciency and introduces unnecessary error accumulation. To overcome these limitations, *Equal contribution. Intern at vivo BlueImage Lab. †Corresponding author. we propose MagicBokeh, a uniﬁed diffusion-based framework designed for high-quality and efﬁcient bokeh rendering. Through an alternative training strategy and a focusaware masked attention mechanism, our method jointly optimizes bokeh rendering and super-resolution, substantially improving both controllability and visual ﬁdelity. Furthermore, we introduce degradation-aware depth module to enable more accurate depth estimation from low-quality inputs. Experimental results demonstrate that MagicBokeh efﬁciently produces photorealistic bokeh effects, particularly on real-world low-resolution images, paving the way for future advancements in bokeh rendering. Our code and models are available at this url.",
+      "authors": [
+        "Linxiao Shi",
+        "Siming Zheng",
+        "Zerong Wang",
+        "Hao Zhang",
+        "Jinwei Chen",
+        "Bo Li",
+        "Shifeng Chen",
+        "Peng-Tao Jiang"
+      ],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Shi_Towards_Photorealistic_and_Efficient_Bokeh_Rendering_via_Diffusion_Framework_CVPR_2026_paper.pdf",
+      "session": "Oral Session 1D: Computational Imaging",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {},
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:5bded4a2bd",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "SenCache: Accelerating Diffusion Model Inference via Sensitivity-Aware Caching",
+      "abstract": "(pages 10, main 4372w, abs 204w, refs 45, figs 4, tabs 3, eqs 12, share: int 14.2% rel 21.2% meth 31.7% exp 23.1% con 4.5%) Diffusion models achieve state-of-the-art video generation quality, but their inference remains expensive due to the large number of sequential denoising steps. This has motivated a growing line of research on accelerating diffusion inference. Among training-free acceleration methods, caching reduces computation by reusing previously computed model outputs across timesteps. Existing caching methods rely on heuristic criteria to choose cache/reuse timesteps and require extensive tuning. We address this limitation with a principled sensitivity-aware caching framework. Specifically, we formalize the caching error through an analysis of the model output sensitivity to perturbations in the denoising inputs, i.e., the noisy latent and the timestep, and show that this sensitivity is a key predictor of caching error. Based on this analysis, we propose Sensitivity-Aware Caching (SenCache), a dynamic caching policy that adaptively selects caching timesteps on a persample basis. Our framework provides a theoretical basis for adaptive caching, explains why prior empirical heuristics can be partially effective, and extends them to a dynamic, sample-specific approach. Experiments on Wan 2.1, CogVideoX, and LTX-Video show that SenCache achieves better visual quality than existing caching methods under similar computational budgets. The code is available at https://github.com/vita-epfl/SenCache.git 14295",
+      "authors": [
+        "Yasaman Haghighi",
+        "Alex Alahi"
+      ],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Haghighi_SenCache_Accelerating_Diffusion_Model_Inference_via_Sensitivity-Aware_Caching_CVPR_2026_paper.pdf",
+      "session": "Oral Session 3A: Generative Diffusion Modeling",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {
+        "mainline": "M1-加速机制",
+        "role": "baseline",
+        "relevance": "high",
+        "gap": "自陈依赖启发式准则选缓存步，需大量调参，未给误差界"
+      },
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:0a56f53e55",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "Streaming Diffusion Model for Fast Infrared and Visible Video Fusion",
+      "abstract": "(pages 10, main 4645w, abs 199w, refs 45, figs 9, tabs 3, eqs 11, share: int 17.4% rel 10.5% meth 36.2% exp 29.1% con 2.5%) Infrared and visible video fusion is pivotal for robust perceptual systems, aiming to synthesize a comprehensive video stream that leverages both thermal resilience and textured details. However, prevailing methods, by treating videos as sequences of independent frames, inherently introduce temporal incoherence, such as flickering and ghosting artifacts. While diffusion models possess strong generative priors to remedy this, their iterative nature is prohibitively slow for video. To resolve this fundamental dilemma, we propose a streaming diffusion model for efficient infrared and visible video fusion, termed SDMFusion. Our key insight is to exploit the generative prior of a pre-trained diffusion model into a one-step sampling framework, while explicitly modeling temporal dynamics. We design a memory-augmented latent pipeline where a temporal aggregation adapter aligns and propagates crossframe features to ensure coherence, supported by a dedicated temporal consistency loss. This approach effectively decouples the challenge of achieving high fidelity from maintaining temporal stability. Extensive experiments on four benchmarks demonstrate that our method establishes a new state-of-the-art, generating fused videos with exceptional spatio-temporal consistency at a speed suitable for real-time application. The code is available at https://github.com/DandanYoung/SDMFusion.",
+      "authors": [
+        "Jinyuan Liu",
+        "Ludan Sun",
+        "Tengyu Ma",
+        "Chunyan Yang",
+        "Zhiying Jiang",
+        "Long Ma",
+        "Risheng Liu",
+        "Xin Fan"
+      ],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Liu_Streaming_Diffusion_Model_for_Fast_Infrared_and_Visible_Video_Fusion_CVPR_2026_paper.pdf",
+      "session": "Oral Session 3A: Generative Diffusion Modeling",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {},
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:fefbb7e2fc",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "BoostSLT: Boosting Sign Language Translation via a Plug-and-Play Diffusion-Based Semantic Enhancer",
+      "abstract": "(pages 10, main 5292w, abs 220w, refs 47, figs 4, tabs 3, eqs 6, share: int 15.1% rel 9.8% meth 36.1% exp 33.1% con 1.8%) Sign Language Translation (SLT) converts continuous sign videos into spoken language text, yet current models, whether gloss-based or gloss-free, struggle with long or discourse-level inputs. Recent architectures such as TwoStreamNetwork and CV-SLT have nearly saturated short-sentence accuracy, but their performance degrades on long sentences and multi-sentence paragraphs. In real scenarios such as news, interviews or daily conversations, signers naturally produce extended signing sequences with complex contextual dependencies. Moreover, identifying precise gloss boundaries remains a key obstacle, while gloss-based methods, though often superior, incur heavy annotation costs. The community therefore needs a solution that mitigates gloss dependency while preserving translation quality. We present BoostSLT, a context-aware framework for enhancing semantic consistency over long sign sequences without gloss supervision. Instead of requiring explicit gloss segmentation, BoostSLT introduces an Energy-Aware Temporal Segmentation (EAT-Seg) module that dynamically partitions videos into semantically coherent fragments, followed by a DiffusionBased Semantic Reconstruction (DSR) module that stitches and refines fragment-level translations into globally fluent paragraphs. The framework is plug-and-play and modelagnostic, seamlessly integrating with existing gloss-based or gloss-free pipelines across languages. Experiments on PHOENIX-2014T, CSL-Daily, and Auslan-Daily show consistent BLEU and ROUGE-L gains, confirming that diffusion-driven semantic reconstruction effectively bridges local accuracy and global coherence in long-form SLT. Code is available at github.com/K1sna/BoostSLT.",
+      "authors": [
+        "Changzhou Han",
+        "Wanlun Ma",
+        "XI TANG",
+        "Kun Hu",
+        "Sheng Wen",
+        "Yang Xiang"
+      ],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Han_BoostSLT_Boosting_Sign_Language_Translation_via_a_Plug-and-Play_Diffusion-Based_Semantic_CVPR_2026_paper.pdf",
+      "session": "Oral Session 5D: Human-Centric Modeling & Lighting",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {},
+      "mergedFrom": []
+    },
+    {
+      "id": "corpus:fe5a5e1b36",
+      "sources": [
+        "corpus"
+      ],
+      "source": "corpus",
+      "type": "conference",
+      "title": "Breaking Semantic Boundaries: Distribution-Guided Semantic Exploration for Creative Generation",
+      "abstract": "(pages 10, main 4565w, abs 201w, refs 43, figs 8, tabs 4, eqs 5, share: int 16.5% rel 6.8% meth 32.2% exp 36.6% con 3.5%) Text-to-image (T2I) diffusion models effectively produce semantically aligned images, but their reliance on training distributions constrains their capacity for synthesizing truly novel, out-of-distribution concepts. Existing methods attempt to enhance creativity through semantic exploration, such as fusing known concept pairs, but the resulting images remain linguistically describable and conﬁned to familiar semantic spaces. Inspired by the soft probabilistic outputs of classiﬁers on novel or out-of-distribution inputs, we propose Distribution-Conditional Generation, a paradigm that models novel concepts as image synthesis conditioned on class distributions, enabling controllable yet semantically unconstrained creative generation. Building on this, we propose DisTok, an encoder–decoder framework that uniﬁes conditional and unconditional creative generation by decoding latent representations—either randomly sampled or mapped from conditions (e.g., class distributions)—into tokens rep*Corresponding authors. resenting novel concepts. DisTok is trained by iteratively sampling and fusing concept pairs from a dynamic pool to model progressively complex distributions, while enforcing semantic consistency through a vision-language model that aligns the class distributions of generated images with the input distributions. Extensive experiments demonstrate that DisTok enables efﬁcient and ﬂexible semantic exploration for token-level creative synthesis, achieving state-of-the-art text–image alignment and human preference.",
+      "authors": [
+        "Fu Feng",
+        "Yucheng Xie",
+        "Ruixiao Shi",
+        "Xu Yang",
+        "Jing Wang",
+        "Xin Geng"
+      ],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "arxivId": "",
+      "doi": "",
+      "journalRef": "",
+      "comment": "",
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Feng_Breaking_Semantic_Boundaries_Distribution-Guided_Semantic_Exploration_for_Creative_Generation_CVPR_2026_paper.pdf",
+      "session": "Oral Session 3A: Generative Diffusion Modeling",
+      "citationCount": null,
+      "verified": "bulk",
+      "pdfOk": false,
+      "notes": {},
+      "mergedFrom": []
+    }
+  ]
+}

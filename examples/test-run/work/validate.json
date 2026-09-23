@@ -1,0 +1,15 @@
+{
+  "manuscript": "test-run\\deliverables\\申请书正文.md",
+  "lib": "test-run\\work\\library.json",
+  "citedCount": 18,
+  "listCount": 18,
+  "missingInList": [],
+  "unusedInText": [],
+  "orphans": [],
+  "numberingIssues": [],
+  "formatProblems": [],
+  "duplicateDoi": [],
+  "ok": true,
+  "blocking": [],
+  "warnings": []
+}
